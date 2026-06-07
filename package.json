@@ -6,10 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "upload-cards": "npx tsx scripts/upload-card-images.ts"
   },
   "dependencies": {
     "@types/pg": "^8.15.5",
+    "@vercel/blob": "^2.4.0",
     "framer-motion": "^12.38.0",
     "lucide-react": "^0.536.0",
     "next": "^16.2.7",
