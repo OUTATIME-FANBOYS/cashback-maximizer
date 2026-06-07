@@ -15,7 +15,6 @@ import {
   X,
   Check,
   Trophy,
-  Star,
   Wallet,
   Wifi,
   Search,
@@ -355,15 +354,6 @@ function CardDetailPage({
               <div className="text-white/50 text-xs mb-1">Credit Score</div>
               <div className="text-white font-semibold text-sm leading-snug">{card.creditScoreNeeded}</div>
             </div>
-          </div>
-
-          {/* Signup bonus */}
-          <div className="bg-white/5 rounded-2xl p-4">
-            <div className="text-white/50 text-xs mb-2 flex items-center gap-1.5">
-              <Star className="w-3.5 h-3.5 text-yellow-400" />
-              Sign-up Bonus
-            </div>
-            <div className="text-white text-sm leading-relaxed">{card.signupBonus}</div>
           </div>
 
         </motion.div>
