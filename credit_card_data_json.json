@@ -1,0 +1,1157 @@
+{
+  "creditCards": [
+    {
+      "id": 1,
+      "name": "Chase Sapphire Preferred",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Travel Rewards",
+      "image": "https://creditcards.chase.com/K-Marketplace/images/cardart/sapphire_preferred_card.png",
+      "annualFee": 95,
+      "signupBonus": "60,000 bonus points after spending $4,000 in first 3 months",
+      "aprRange": "21.49% - 28.49% variable",
+      "rewardsRate": {
+        "travel": "5x points on travel through Chase portal",
+        "dining": "3x points on dining",
+        "onlineGrocery": "3x points on online grocery",
+        "streaming": "3x points on streaming services",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "25% more value when redeeming for travel through Chase",
+        "$50 annual Chase Travel Hotel Credit",
+        "No foreign transaction fees",
+        "Trip cancellation/interruption insurance",
+        "Auto rental collision damage waiver",
+        "Purchase protection",
+        "Travel and emergency assistance",
+        "Complimentary DoorDash DashPass subscription"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 2,
+      "name": "Chase Sapphire Reserve",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Premium Travel",
+      "image": "https://creditcards.chase.com/K-Marketplace/images/cardart/sapphire_reserve_card.png",
+      "annualFee": 550,
+      "signupBonus": "60,000 bonus points after spending $4,000 in first 3 months",
+      "aprRange": "22.49% - 29.49% variable",
+      "rewardsRate": {
+        "travel": "10x points on hotels and car rentals through Chase portal, 5x on flights",
+        "dining": "10x points on dining through Chase Dining",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "$300 annual travel credit",
+        "50% more value when redeeming for travel through Chase",
+        "Priority Pass Select lounge access",
+        "No foreign transaction fees",
+        "$100 Global Entry or TSA PreCheck credit",
+        "Complimentary Lyft Pink membership",
+        "Trip delay reimbursement",
+        "Trip cancellation/interruption insurance",
+        "Primary auto rental coverage worldwide",
+        "Purchase protection and extended warranty"
+      ],
+      "creditScoreNeeded": "Excellent (740+)"
+    },
+    {
+      "id": 3,
+      "name": "American Express Platinum Card",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Premium Travel",
+      "image": "https://icm.aexp-static.com/content/dam/amex/us/credit-cards/features-benefits/policies/images/cardart/platinum-card.png",
+      "annualFee": 695,
+      "signupBonus": "80,000 Membership Rewards points after spending $8,000 in first 6 months",
+      "aprRange": "N/A (charge card - pay in full monthly)",
+      "rewardsRate": {
+        "flights": "5x points on flights booked directly with airlines or on amextravel.com",
+        "hotels": "5x points on hotels booked on amextravel.com",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "$200 annual hotel credit",
+        "$200 annual airline fee credit",
+        "$189 CLEAR Plus credit",
+        "$100 Saks Fifth Avenue credit",
+        "$155 Walmart+ credit",
+        "Access to Amex Centurion Lounges and Priority Pass",
+        "Fine Hotels + Resorts program",
+        "Global Lounge Collection access",
+        "$100 Global Entry or TSA PreCheck credit",
+        "No foreign transaction fees",
+        "Complimentary Gold status with Marriott and Hilton",
+        "Premium car rental privileges",
+        "Trip delay insurance",
+        "Baggage insurance"
+      ],
+      "creditScoreNeeded": "Excellent (740+)"
+    },
+    {
+      "id": 4,
+      "name": "Capital One Venture X",
+      "issuer": "Capital One",
+      "network": "Visa",
+      "type": "Premium Travel",
+      "image": "https://ecm.capitalone.com/WCM/card/products/venture-x-card-art.png",
+      "annualFee": 395,
+      "signupBonus": "75,000 bonus miles after spending $4,000 in first 3 months",
+      "aprRange": "20.99% - 29.99% variable",
+      "rewardsRate": {
+        "travel": "10x miles on hotels and rental cars through Capital One Travel",
+        "all": "2x miles on all other purchases"
+      },
+      "benefits": [
+        "$300 annual travel credit through Capital One Travel",
+        "10,000 anniversary bonus miles ($100 value)",
+        "Priority Pass lounge access plus Plaza Premium lounges",
+        "Capital One Lounge access",
+        "No foreign transaction fees",
+        "$100 Global Entry or TSA PreCheck credit",
+        "Hertz President's Circle status",
+        "Primary rental car coverage",
+        "Trip cancellation/interruption insurance",
+        "Lost luggage reimbursement",
+        "Cell phone protection"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 5,
+      "name": "Citi Double Cash Card",
+      "issuer": "Citi",
+      "network": "Mastercard",
+      "type": "Cash Back",
+      "image": "https://www.citi.com/CRD/images/citi-double-cash/citi-double-cash-card.png",
+      "annualFee": 0,
+      "signupBonus": "$200 cash back after spending $1,500 in first 6 months",
+      "aprRange": "19.24% - 29.24% variable",
+      "rewardsRate": {
+        "all": "2% cash back (1% when you buy, 1% when you pay)"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on balance transfers for 18 months",
+        "No rotating categories",
+        "No caps on earnings",
+        "Citi Entertainment access"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 6,
+      "name": "Chase Freedom Unlimited",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "https://creditcards.chase.com/K-Marketplace/images/cardart/freedom_unlimited_card.png",
+      "annualFee": 0,
+      "signupBonus": "$200 bonus after spending $500 in first 3 months",
+      "aprRange": "20.49% - 29.24% variable",
+      "rewardsRate": {
+        "travel": "5% cash back on travel through Chase",
+        "dining": "3% cash back on dining and drugstores",
+        "all": "1.5% cash back on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 15 months",
+        "No foreign transaction fees",
+        "Purchase protection",
+        "Auto rental collision damage waiver",
+        "Cell phone protection up to $600",
+        "Extended warranty protection"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 7,
+      "name": "American Express Gold Card",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Dining & Travel Rewards",
+      "image": "https://icm.aexp-static.com/content/dam/amex/us/credit-cards/features-benefits/policies/images/cardart/gold-card.png",
+      "annualFee": 250,
+      "signupBonus": "60,000 Membership Rewards points after spending $6,000 in first 6 months",
+      "aprRange": "N/A (charge card - pay in full monthly)",
+      "rewardsRate": {
+        "dining": "4x points at restaurants worldwide and at US supermarkets (up to $25k/year)",
+        "flights": "3x points on flights booked directly with airlines or on amextravel.com",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "$120 annual Uber Cash ($10/month)",
+        "$120 annual dining credit ($10/month at Grubhub, The Cheesecake Factory, etc.)",
+        "No foreign transaction fees",
+        "Baggage insurance plan",
+        "Trip delay insurance",
+        "Car rental loss and damage insurance",
+        "Resy access and benefits",
+        "Global Dining Collection"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 8,
+      "name": "Discover it Cash Back",
+      "issuer": "Discover",
+      "network": "Discover",
+      "type": "Cash Back",
+      "image": "https://www.discover.com/credit-cards/images/cardart/cardart-discover-it-cashback.png",
+      "annualFee": 0,
+      "signupBonus": "Unlimited Cashback Match - Discover matches all cash back earned in first year",
+      "aprRange": "18.24% - 27.24% variable",
+      "rewardsRate": {
+        "rotating": "5% cash back on rotating categories (up to $1,500/quarter, activation required)",
+        "all": "1% cash back on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases and balance transfers for 15 months",
+        "No foreign transaction fees",
+        "Free FICO credit score",
+        "Freeze it feature for card security",
+        "Social Security number alerts",
+        "100% US-based customer service"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 9,
+      "name": "Capital One Venture Rewards",
+      "issuer": "Capital One",
+      "network": "Visa",
+      "type": "Travel Rewards",
+      "image": "https://ecm.capitalone.com/WCM/card/products/venture-card-art.png",
+      "annualFee": 95,
+      "signupBonus": "75,000 bonus miles after spending $4,000 in first 3 months",
+      "aprRange": "20.99% - 29.99% variable",
+      "rewardsRate": {
+        "all": "2x miles on every purchase"
+      },
+      "benefits": [
+        "No foreign transaction fees",
+        "Transfer miles to 15+ travel loyalty programs",
+        "5 miles per dollar on hotels and rental cars through Capital One Travel",
+        "Trip cancellation/interruption insurance",
+        "Auto rental collision damage waiver",
+        "Travel accident insurance",
+        "24-hour travel assistance",
+        "Lost luggage reimbursement"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 10,
+      "name": "Wells Fargo Active Cash Card",
+      "issuer": "Wells Fargo",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "https://www.wellsfargo.com/assets/images/credit-cards/active-cash/active-cash-card.png",
+      "annualFee": 0,
+      "signupBonus": "$200 cash rewards bonus after spending $500 in first 3 months",
+      "aprRange": "20.24%, 25.24%, or 29.99% variable",
+      "rewardsRate": {
+        "all": "2% cash rewards on purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases and balance transfers for 15 months",
+        "No category restrictions",
+        "Cell phone protection up to $600",
+        "My Wells Fargo Deals for personalized offers",
+        "Visa Signature benefits"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 11,
+      "name": "Bank of America Premium Rewards",
+      "issuer": "Bank of America",
+      "network": "Visa",
+      "type": "Travel Rewards",
+      "image": "https://www.bankofamerica.com/credit-cards/images/premium-rewards-credit-card.png",
+      "annualFee": 95,
+      "signupBonus": "60,000 bonus points after spending $4,000 in first 90 days",
+      "aprRange": "19.24% - 29.24% variable",
+      "rewardsRate": {
+        "travel": "2x points on travel and dining",
+        "all": "1.5x points on all other purchases"
+      },
+      "benefits": [
+        "$100 annual airline incidental credit",
+        "No foreign transaction fees",
+        "$100 TSA PreCheck or Global Entry credit",
+        "Up to $600 cell phone protection",
+        "Trip cancellation and interruption insurance",
+        "Lost luggage reimbursement",
+        "Concierge service",
+        "Preferred Rewards bonus (up to 75% more rewards for BoA customers)"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 12,
+      "name": "Chase Freedom Flex",
+      "issuer": "Chase",
+      "network": "Mastercard",
+      "type": "Cash Back",
+      "image": "https://creditcards.chase.com/K-Marketplace/images/cardart/freedom_flex_card.png",
+      "annualFee": 0,
+      "signupBonus": "$200 bonus after spending $500 in first 3 months",
+      "aprRange": "20.49% - 29.24% variable",
+      "rewardsRate": {
+        "rotating": "5% cash back on rotating categories (up to $1,500/quarter, activation required)",
+        "travel": "5% on travel through Chase",
+        "dining": "3% on dining and drugstores",
+        "all": "1% on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 15 months",
+        "No foreign transaction fees",
+        "Purchase protection",
+        "Extended warranty protection",
+        "Auto rental collision damage waiver",
+        "Trip cancellation/interruption insurance"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 13,
+      "name": "Capital One Savor Cash Rewards",
+      "issuer": "Capital One",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$200 cash back after spending $500 in first 3 months",
+      "aprRange": "18.49% - 28.49% variable",
+      "rewardsRate": {
+        "dining": "3% cash back on dining",
+        "entertainment": "3% cash back on entertainment",
+        "streaming": "3% cash back on popular streaming services",
+        "groceries": "3% cash back at grocery stores",
+        "travel": "5% cash back on hotels and rental cars booked through Capital One Travel",
+        "capitalOneEntertainment": "8% cash back on Capital One Entertainment purchases",
+        "other": "1% cash back on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR for 12 months on purchases and balance transfers",
+        "No foreign transaction fees",
+        "Complimentary Uber One membership",
+        "Extended warranty protection",
+        "Travel accident insurance"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 14,
+      "name": "Capital One SavorOne Cash Rewards",
+      "issuer": "Capital One",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 39,
+      "signupBonus": "None",
+      "aprRange": "28.99% variable",
+      "rewardsRate": {
+        "dining": "3% cash back on dining",
+        "entertainment": "3% cash back on entertainment",
+        "streaming": "3% cash back on popular streaming services",
+        "groceries": "3% cash back at grocery stores",
+        "travel": "5% cash back on hotels and rental cars booked through Capital One Travel",
+        "capitalOneEntertainment": "8% cash back on Capital One Entertainment purchases",
+        "other": "1% cash back on all other purchases"
+      },
+      "benefits": [
+        "Designed for fair/average credit",
+        "No foreign transaction fees",
+        "Extended warranty protection",
+        "Travel accident insurance"
+      ],
+      "creditScoreNeeded": "Fair (580+)"
+    },
+    {
+      "id": 15,
+      "name": "Blue Cash Preferred Card from American Express",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 95,
+      "signupBonus": "$250 statement credit after spending $3,000 in first 6 months",
+      "aprRange": "19.49% - 28.49% variable",
+      "rewardsRate": {
+        "groceries": "6% cash back at U.S. supermarkets (up to $6,000/year, then 1%)",
+        "streaming": "6% cash back on select U.S. streaming subscriptions",
+        "gas": "3% cash back at U.S. gas stations",
+        "transit": "3% cash back on transit (taxis, rideshare, parking, tolls, trains, buses)",
+        "other": "1% cash back on all other purchases"
+      },
+      "benefits": [
+        "$0 intro annual fee for first year, then $95",
+        "0% intro APR on purchases and balance transfers for 12 months",
+        "Return protection",
+        "Purchase protection",
+        "Extended warranty",
+        "Car rental loss and damage insurance",
+        "Global Assist Hotline"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 16,
+      "name": "Blue Cash Everyday Card from American Express",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$200 cash back after spending $2,000 in first 6 months",
+      "aprRange": "19.49% - 28.49% variable",
+      "rewardsRate": {
+        "groceries": "3% cash back at U.S. supermarkets (up to $6,000/year, then 1%)",
+        "gas": "3% cash back at U.S. gas stations (up to $6,000/year, then 1%)",
+        "onlineRetail": "3% cash back on U.S. online retail purchases (up to $6,000/year, then 1%)",
+        "other": "1% cash back on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases and balance transfers for 15 months",
+        "Return protection",
+        "Purchase protection",
+        "Extended warranty",
+        "Car rental loss and damage insurance",
+        "Global Assist Hotline"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 17,
+      "name": "Citi Custom Cash Card",
+      "issuer": "Citi",
+      "network": "Mastercard",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$200 cash back after spending $1,500 in first 6 months",
+      "aprRange": "17.99% - 27.99% variable",
+      "rewardsRate": {
+        "topCategory": "5% cash back on your top eligible spend category each billing cycle (up to $500 spent, then 1%)",
+        "other": "1% cash back on all other purchases",
+        "eligibleCategories": "Eligible 5% categories: restaurants, gas stations, grocery stores, select travel, select transit, select streaming, drugstores, home improvement stores, fitness clubs, live entertainment"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases and balance transfers for 15 months",
+        "Category automatically adjusts each billing cycle",
+        "Citi Entertainment access",
+        "4% additional cash back on hotels, car rentals, and attractions booked on Citi Travel"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 18,
+      "name": "Citi Strata Premier",
+      "issuer": "Citi",
+      "network": "Mastercard",
+      "type": "Travel Rewards",
+      "image": "",
+      "annualFee": 95,
+      "signupBonus": "60,000 bonus ThankYou points after spending $4,000 in first 3 months",
+      "aprRange": "19.49% - 27.49% variable",
+      "rewardsRate": {
+        "travel": "3x points on air travel and hotels",
+        "dining": "3x points on restaurants",
+        "groceries": "3x points on supermarkets",
+        "gas": "3x points on gas stations and EV charging",
+        "portalTravel": "10x points on hotels, car rentals and attractions booked through Citi Travel",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "$100 off a single hotel stay of $500+ booked through Citi Travel (once per year)",
+        "No foreign transaction fees",
+        "Transfer points to airline and hotel partners",
+        "Trip interruption protection",
+        "Baggage delay insurance",
+        "Worldwide car rental insurance",
+        "Citi Entertainment access"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 19,
+      "name": "Amazon Prime Visa",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$150 Amazon gift card instantly upon approval",
+      "aprRange": "20.49% - 29.24% variable",
+      "rewardsRate": {
+        "amazon": "5% back at Amazon.com, Amazon Fresh, and Whole Foods (with Prime membership)",
+        "travel": "5% back on Chase Travel purchases",
+        "dining": "2% back at restaurants",
+        "gas": "2% back at gas stations",
+        "transit": "2% back on local transit and commuting",
+        "other": "1% back on all other purchases"
+      },
+      "benefits": [
+        "No annual fee (requires Amazon Prime membership at $139/year)",
+        "No foreign transaction fees",
+        "$150 Amazon gift card upon approval",
+        "Purchase protection",
+        "Extended warranty protection",
+        "Travel accident insurance",
+        "Amazon-specific deals and promotions"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 20,
+      "name": "Costco Anywhere Visa Card by Citi",
+      "issuer": "Citi",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "None",
+      "aprRange": "18.74% - 26.74% variable",
+      "rewardsRate": {
+        "costcoGas": "5% cash back on gas at Costco (included in $7,000 annual cap)",
+        "gas": "4% cash back on eligible gas and EV charging worldwide (up to $7,000/year combined, then 1%)",
+        "dining": "3% cash back on restaurants",
+        "travel": "3% cash back on eligible travel purchases",
+        "costco": "2% cash back on all Costco and Costco.com purchases",
+        "other": "1% cash back on all other purchases"
+      },
+      "benefits": [
+        "No annual fee with paid Costco membership",
+        "No foreign transaction fees",
+        "Cash back provided as annual reward certificate in February",
+        "Redeemable at U.S. Costco warehouses",
+        "Damage and theft purchase protection",
+        "Extended warranty protection",
+        "Travel accident insurance",
+        "Worldwide car rental insurance"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 21,
+      "name": "Apple Card",
+      "issuer": "Apple/Goldman Sachs",
+      "network": "Mastercard",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "None",
+      "aprRange": "13.24% - 24.24% variable",
+      "rewardsRate": {
+        "apple": "3% Daily Cash at Apple Store and select partners (Uber, Exxon, Walgreens, Nike, etc.)",
+        "applePay": "2% Daily Cash on all Apple Pay purchases",
+        "other": "1% Daily Cash on physical card purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "No foreign transaction fees",
+        "No late fees or penalty rates",
+        "Daily Cash deposited to Apple Cash daily",
+        "Titanium card design",
+        "Built-in spending tracker in Wallet app",
+        "Privacy-focused with no tracking",
+        "Interest rate among the lowest available"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 22,
+      "name": "Target Circle Card",
+      "issuer": "TD Bank",
+      "network": "Mastercard",
+      "type": "Store Card",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "None",
+      "aprRange": "22.24% - 30.74% variable",
+      "rewardsRate": {
+        "target": "5% discount on eligible Target purchases (in-store and online)",
+        "targetStarbucks": "5% discount at Starbucks inside Target stores"
+      },
+      "benefits": [
+        "No annual fee",
+        "5% off on top of Target Circle deals",
+        "Free 2-day shipping on many Target.com items",
+        "Extended 30-day return window",
+        "10% off on cardmember anniversary (in store)",
+        "5% discount on Target gift cards"
+      ],
+      "creditScoreNeeded": "Fair to Good (580+)"
+    },
+    {
+      "id": 23,
+      "name": "Capital One VentureOne Rewards",
+      "issuer": "Capital One",
+      "network": "Visa",
+      "type": "Travel Rewards",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "20,000 bonus miles after spending $500 in first 3 months",
+      "aprRange": "18.49% - 28.49% variable",
+      "rewardsRate": {
+        "travel": "5x miles on hotels and rental cars booked through Capital One Travel",
+        "all": "1.25x miles on every purchase"
+      },
+      "benefits": [
+        "No annual fee",
+        "No foreign transaction fees",
+        "0% intro APR on purchases and balance transfers for 15 months",
+        "Transfer miles to travel loyalty programs",
+        "Travel accident insurance",
+        "Auto rental collision damage waiver",
+        "24-hour travel assistance"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 24,
+      "name": "Capital One Quicksilver Cash Rewards",
+      "issuer": "Capital One",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$200 cash bonus after spending $500 in first 3 months",
+      "aprRange": "18.49% - 28.49% variable",
+      "rewardsRate": {
+        "travel": "5% cash back on hotels and rental cars booked through Capital One Travel",
+        "all": "1.5% cash back on every purchase"
+      },
+      "benefits": [
+        "No annual fee",
+        "No foreign transaction fees",
+        "0% intro APR on purchases and balance transfers for 15 months",
+        "No minimum redemption amount",
+        "Travel accident insurance",
+        "Extended warranty protection",
+        "24-hour travel assistance"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 25,
+      "name": "U.S. Bank Altitude Go Visa",
+      "issuer": "U.S. Bank",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "20,000 bonus points after spending $1,000 in first 90 days",
+      "aprRange": "17.49% - 27.49% variable",
+      "rewardsRate": {
+        "dining": "4x points on dining (up to $2,000 per quarter, then 1x)",
+        "groceries": "2x points at grocery stores",
+        "gas": "2x points at gas stations and EV charging",
+        "streaming": "2x points on streaming services",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases and balance transfers for 15 billing cycles",
+        "Cell phone protection up to $600",
+        "Two complimentary single-visit Priority Pass lounge visits per year",
+        "Extended warranty protection",
+        "Auto rental collision damage waiver"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 26,
+      "name": "U.S. Bank Altitude Connect Visa",
+      "issuer": "U.S. Bank",
+      "network": "Visa",
+      "type": "Travel Rewards",
+      "image": "",
+      "annualFee": 95,
+      "signupBonus": "30,000 bonus points after spending $2,000 in first 120 days",
+      "aprRange": "18.74% - 28.49% variable",
+      "rewardsRate": {
+        "portalTravel": "5x points on prepaid hotel and car reservations through U.S. Bank Travel Center",
+        "travel": "4x points on travel category purchases (airlines, hotels, car rentals, etc.)",
+        "gas": "4x points at gas stations and EV charging (up to $1,000/quarter)",
+        "dining": "2x points on dining",
+        "streaming": "2x points on streaming services",
+        "groceries": "2x points at grocery stores",
+        "other": "1x point on all other purchases"
+      },
+      "benefits": [
+        "$50 annual streaming credit",
+        "4 complimentary single-visit Priority Pass lounge visits per year",
+        "No foreign transaction fees",
+        "Cell phone protection up to $600",
+        "Trip cancellation/interruption insurance",
+        "Auto rental collision damage waiver",
+        "Baggage delay insurance"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 27,
+      "name": "U.S. Bank Cash+ Visa Signature",
+      "issuer": "U.S. Bank",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$200 bonus after spending $1,000 in first 90 days",
+      "aprRange": "17.74% - 27.99% variable",
+      "rewardsRate": {
+        "chosenCategories": "5% cash back on two categories you choose each quarter (up to $2,000 combined per quarter)",
+        "everydayCategory": "2% cash back on one everyday category you choose (gas, groceries, or restaurants)",
+        "other": "1% cash back on all other purchases",
+        "categoryOptions": "5% categories include: TV/internet/streaming, utilities, cell phone providers, fast food, gym/fitness, and more"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases and balance transfers for 15 billing cycles",
+        "Choose your own bonus categories each quarter",
+        "Extended warranty protection",
+        "Auto rental collision damage waiver",
+        "Purchase protection"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 28,
+      "name": "Bank of America Customized Cash Rewards",
+      "issuer": "Bank of America",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$200 cash rewards bonus after spending $1,000 in first 90 days",
+      "aprRange": "17.49% - 27.49% variable",
+      "rewardsRate": {
+        "chosenCategory": "3% cash back in the category of your choice (gas, online shopping, dining, travel, drugstores, or home improvement — up to $2,500/quarter combined with grocery)",
+        "groceries": "2% cash back at grocery stores and wholesale clubs (up to $2,500/quarter combined with choice category)",
+        "other": "1% cash back on all other purchases",
+        "firstYearBoost": "6% cash back in choice category for the first year (new accounts)"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 15 billing cycles",
+        "Change your 3% category once per month",
+        "Preferred Rewards members earn 25%-75% more cash back",
+        "Contactless payments",
+        "Overdraft protection (for BoA checking customers)"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 29,
+      "name": "Chase Ink Business Preferred",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Business Rewards",
+      "image": "",
+      "annualFee": 95,
+      "signupBonus": "100,000 bonus points after spending $8,000 in first 3 months",
+      "aprRange": "21.24% - 26.24% variable",
+      "rewardsRate": {
+        "travel": "3x points on travel",
+        "shipping": "3x points on shipping purchases",
+        "advertising": "3x points on advertising purchases (social media and search engines)",
+        "internet": "3x points on internet, cable, and phone services",
+        "lyft": "5x points on Lyft rides (through 9/30/2027)",
+        "other": "1x points on all other purchases (3x categories cap at $150,000/year)"
+      },
+      "benefits": [
+        "25% more value when redeeming for travel through Chase",
+        "Transfer points to airline and hotel partners",
+        "Cell phone protection up to $600",
+        "Trip cancellation/interruption insurance",
+        "Auto rental collision damage waiver",
+        "Purchase protection",
+        "Extended warranty protection",
+        "No foreign transaction fees"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 30,
+      "name": "Chase Ink Business Unlimited",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Business Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$750 bonus cash back after spending $6,000 in first 3 months",
+      "aprRange": "18.49% - 24.49% variable",
+      "rewardsRate": {
+        "all": "1.5% cash back on every purchase",
+        "lyft": "5% cash back on Lyft rides (through 9/30/2027)"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 12 months",
+        "Employee cards at no additional cost",
+        "Purchase protection",
+        "Extended warranty protection",
+        "Auto rental collision damage waiver",
+        "Trip cancellation/interruption insurance",
+        "No foreign transaction fees"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 31,
+      "name": "American Express Green Card",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Travel Rewards",
+      "image": "",
+      "annualFee": 150,
+      "signupBonus": "40,000 Membership Rewards points after spending $3,000 in first 6 months",
+      "aprRange": "19.49% - 28.49% variable",
+      "rewardsRate": {
+        "travel": "3x points on travel worldwide (flights, hotels, car rentals, rideshares, etc.)",
+        "transit": "3x points on transit (trains, taxis, rideshare, tolls, buses, subways)",
+        "dining": "3x points at restaurants worldwide",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "Up to $199 CLEAR Plus credit",
+        "No foreign transaction fees",
+        "Transfer points to airline and hotel partners",
+        "Baggage insurance plan",
+        "Car rental loss and damage insurance",
+        "Trip delay insurance",
+        "Global Assist Hotline"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 32,
+      "name": "PayPal Cashback Mastercard",
+      "issuer": "Synchrony Bank",
+      "network": "Mastercard",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "None",
+      "aprRange": "19.24% - 33.99% variable",
+      "rewardsRate": {
+        "paypal": "3% cash back on all PayPal purchases",
+        "all": "1.5% cash back everywhere Mastercard is accepted"
+      },
+      "benefits": [
+        "No annual fee",
+        "Unlimited cash back rewards",
+        "No minimum redemption amount",
+        "Cash back redeemed to PayPal balance",
+        "Use rewards for PayPal purchases or transfer to bank"
+      ],
+      "creditScoreNeeded": "Fair to Good (640+)"
+    },
+    {
+      "id": 33,
+      "name": "Bilt Mastercard",
+      "issuer": "Wells Fargo",
+      "network": "Mastercard",
+      "type": "Rewards",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "None (points earned on rent from first payment)",
+      "aprRange": "21.24% - 29.99% variable",
+      "rewardsRate": {
+        "dining": "3x points on dining",
+        "groceries": "3x points on groceries (up to $25,000/year)",
+        "travel": "2x points on travel",
+        "rent": "1x points on rent payments (no transaction fee)",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "Earn points on rent with no transaction fees",
+        "Transfer points to airline and hotel partners",
+        "No foreign transaction fees",
+        "Rent-day perks on the 1st of each month",
+        "Points count toward homeownership goals",
+        "Cell phone protection"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 34,
+      "name": "Hilton Honors American Express Surpass",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Hotel Rewards",
+      "image": "",
+      "annualFee": 150,
+      "signupBonus": "130,000 Hilton Honors Bonus Points plus a Free Night Reward after spending $3,000 in first 6 months",
+      "aprRange": "17.49% - 27.49% variable",
+      "rewardsRate": {
+        "hilton": "12x Hilton Honors points on Hilton purchases",
+        "dining": "6x points at U.S. restaurants",
+        "groceries": "6x points at U.S. supermarkets",
+        "gas": "6x points at U.S. gas stations",
+        "onlineRetail": "4x points on U.S. online retail purchases",
+        "other": "3x points on all other purchases"
+      },
+      "benefits": [
+        "Complimentary Hilton Honors Gold status",
+        "Free Night Reward after spending $15,000 in a calendar year",
+        "$200 Hilton resort credit ($50 per quarter)",
+        "5th night free on award stays",
+        "No foreign transaction fees",
+        "Purchase protection",
+        "Car rental loss and damage insurance",
+        "Baggage insurance plan"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 35,
+      "name": "Marriott Bonvoy Boundless",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Hotel Rewards",
+      "image": "",
+      "annualFee": 95,
+      "signupBonus": "3 Free Night Awards after spending $3,000 in first 3 months, plus 1 additional Free Night after $4,000 total in 4 months",
+      "aprRange": "20.49% - 27.49% variable",
+      "rewardsRate": {
+        "marriott": "6x points per $1 at participating Marriott hotels",
+        "dining": "3x points at restaurants (up to $6,000/year)",
+        "groceries": "3x points at grocery stores (up to $6,000/year)",
+        "gas": "3x points at gas stations (up to $6,000/year)",
+        "other": "2x points on all other purchases"
+      },
+      "benefits": [
+        "Free Night Award each account anniversary (up to 35,000 points value)",
+        "Automatic Marriott Bonvoy Silver Elite status",
+        "15 Elite Night Credits toward next status level",
+        "No foreign transaction fees",
+        "Trip cancellation/interruption insurance",
+        "Baggage delay insurance",
+        "Auto rental collision damage waiver",
+        "Purchase protection"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 36,
+      "name": "World of Hyatt Credit Card",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Hotel Rewards",
+      "image": "",
+      "annualFee": 95,
+      "signupBonus": "Up to 60,000 bonus points: 30,000 after spending $3,000 in first 3 months, plus up to 30,000 more (2x on up to $15,000 in first 6 months)",
+      "aprRange": "19.49% - 27.99% variable",
+      "rewardsRate": {
+        "hyatt": "4x points at Hyatt hotels (up to 9x total with Hyatt membership)",
+        "dining": "2x points at restaurants",
+        "airlines": "2x points on airline tickets purchased directly from airlines",
+        "transit": "2x points on local transit and commuting",
+        "gym": "2x points on gym and fitness club memberships",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "Free night at Category 1-4 Hyatt hotel each card anniversary",
+        "Extra free night at Cat 1-4 after spending $15,000 in a calendar year",
+        "Automatic World of Hyatt Discoverist status",
+        "5 qualifying night credits toward next tier",
+        "No foreign transaction fees",
+        "Trip cancellation/interruption insurance",
+        "Baggage delay insurance",
+        "Auto rental collision damage waiver",
+        "Purchase protection"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 37,
+      "name": "Southwest Rapid Rewards Plus",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Airline Rewards",
+      "image": "",
+      "annualFee": 99,
+      "signupBonus": "50,000 bonus points after spending $1,000 in first 3 months",
+      "aprRange": "21.49% - 28.49% variable",
+      "rewardsRate": {
+        "southwest": "2x points on Southwest Airlines purchases",
+        "gas": "2x points at gas stations (up to $5,000/year combined)",
+        "groceries": "2x points at grocery stores (up to $5,000/year combined)",
+        "transit": "2x points on local transit and commuting",
+        "internet": "2x points on internet, cable, and phone services",
+        "streaming": "2x points on select streaming",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "3,000 anniversary bonus points each year",
+        "25% back on inflight purchases",
+        "2 EarlyBird Check-In passes per year",
+        "No foreign transaction fees",
+        "Lost luggage reimbursement",
+        "Baggage delay insurance",
+        "Trip cancellation/interruption insurance",
+        "Auto rental collision damage waiver"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 38,
+      "name": "United Gateway Card",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Airline Rewards",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "30,000 bonus miles after spending $1,000 in first 3 months",
+      "aprRange": "19.74% - 28.24% variable",
+      "rewardsRate": {
+        "united": "2x miles on United purchases",
+        "gas": "2x miles at gas stations",
+        "transit": "2x miles on local transit and commuting",
+        "other": "1x mile on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 12 months",
+        "25% back as statement credit on United inflight food, drinks, and Wi-Fi",
+        "Two free checked bags after spending $10,000/year",
+        "No foreign transaction fees",
+        "Trip cancellation/interruption insurance",
+        "Auto rental collision damage waiver",
+        "Baggage delay insurance"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 39,
+      "name": "Delta SkyMiles Gold American Express Card",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Airline Rewards",
+      "image": "",
+      "annualFee": 150,
+      "signupBonus": "70,000 bonus miles after spending $3,000 in first 6 months",
+      "aprRange": "19.49% - 28.49% variable",
+      "rewardsRate": {
+        "delta": "2x miles on Delta purchases",
+        "dining": "2x miles at restaurants worldwide",
+        "groceries": "2x miles at U.S. supermarkets",
+        "other": "1x mile on all other purchases"
+      },
+      "benefits": [
+        "$0 intro annual fee for first year, then $150",
+        "$200 Delta Flight Credit after spending $10,000 in a year",
+        "Up to $100/year statement credit for Delta Stays hotel bookings",
+        "First checked bag free on Delta flights",
+        "Priority boarding on Delta flights",
+        "No foreign transaction fees",
+        "Trip delay insurance",
+        "Baggage insurance plan",
+        "Car rental loss and damage insurance"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 40,
+      "name": "Ink Business Cash Credit Card",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Business Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$350 bonus cash back after spending $3,000 in first 3 months",
+      "aprRange": "18.49% - 24.49% variable",
+      "rewardsRate": {
+        "officeSupply": "5% cash back at office supply stores (up to $25,000/year combined)",
+        "internet": "5% cash back on internet, cable, and phone services (up to $25,000/year combined)",
+        "dining": "2% cash back on dining (up to $25,000/year combined)",
+        "gas": "2% cash back at gas stations (up to $25,000/year combined)",
+        "other": "1% cash back on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 12 months",
+        "Employee cards at no additional cost",
+        "Purchase protection",
+        "Extended warranty protection",
+        "Auto rental collision damage waiver",
+        "Cell phone protection",
+        "Fraud protection with zero liability"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 41,
+      "name": "Discover it Miles",
+      "issuer": "Discover",
+      "network": "Discover",
+      "type": "Travel Rewards",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "Miles Match - Discover matches all miles earned at end of first year",
+      "aprRange": "18.24% - 27.24% variable",
+      "rewardsRate": {
+        "all": "1.5x miles on every purchase (effectively 3x in first year with Miles Match)"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 15 months",
+        "No foreign transaction fees",
+        "Miles never expire",
+        "Redeem miles for travel statement credits",
+        "Free FICO credit score",
+        "Freeze it feature for card security"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 42,
+      "name": "Wells Fargo Autograph Card",
+      "issuer": "Wells Fargo",
+      "network": "Visa",
+      "type": "Rewards",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "20,000 bonus points after spending $1,000 in first 3 months",
+      "aprRange": "20.24%, 25.24%, or 29.99% variable",
+      "rewardsRate": {
+        "dining": "3x points on restaurants",
+        "travel": "3x points on travel",
+        "gas": "3x points at gas stations",
+        "transit": "3x points on transit",
+        "streaming": "3x points on streaming services",
+        "phonePlans": "3x points on phone plans",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "No foreign transaction fees",
+        "0% intro APR on purchases for 12 months",
+        "Cell phone protection up to $600",
+        "My Wells Fargo Deals for personalized offers",
+        "Visa Signature benefits"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    }
+  ],
+  "metadata": {
+    "totalCards": 42,
+    "lastUpdated": "2026-03-23",
+    "version": "2.0"
+  }
+}
