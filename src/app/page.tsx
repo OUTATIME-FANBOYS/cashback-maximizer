@@ -45,6 +45,26 @@ const CARD_PEEK   = 72;
 const springSmooth = { type: "spring" as const, stiffness: 300, damping: 30 };
 const springBouncy = { type: "spring" as const, stiffness: 400, damping: 28 };
 
+/* ───── press burst particles (fixed positions, no randomness) ───── */
+const BURST_PARTICLES: { x: number; y: number; w: number; h: number }[] = [
+  { x:   0, y: -62, w: 4, h: 4 },
+  { x:  26, y: -57, w: 3, h: 5 },
+  { x:  50, y: -40, w: 5, h: 3 },
+  { x:  62, y:  -8, w: 3, h: 3 },
+  { x:  62, y:  18, w: 4, h: 4 },
+  { x:  48, y:  42, w: 5, h: 5 },
+  { x:  22, y:  60, w: 3, h: 3 },
+  { x:  -6, y:  65, w: 4, h: 4 },
+  { x: -30, y:  57, w: 3, h: 5 },
+  { x: -52, y:  40, w: 5, h: 3 },
+  { x: -64, y:  12, w: 3, h: 3 },
+  { x: -60, y: -16, w: 4, h: 4 },
+  { x: -44, y: -44, w: 5, h: 3 },
+  { x: -18, y: -62, w: 3, h: 3 },
+  { x:  36, y: -14, w: 3, h: 3 },
+  { x: -36, y:  30, w: 3, h: 3 },
+];
+
 /* ───── helpers ───── */
 function networkLabel(n: string) {
   if (n === "Visa") return "VISA";
@@ -68,33 +88,72 @@ function WalletCard({
   total,
   onTap,
   last4,
+  pressingCardId,
 }: {
   card: CardWithRank;
   index: number;
   total: number;
   onTap: (id: number) => void;
   last4?: string;
+  pressingCardId: number | null;
 }) {
   const [from, to] = cardGradients[card.id] || ["#333", "#555"];
   const hasPromo = !!card.activePromotion;
   const cardImage = cardImages[card.id];
+  const isPressing = pressingCardId === card.id;
+  const isDimmed   = pressingCardId !== null && !isPressing;
 
   return (
     <motion.div
       onClick={(e) => { e.stopPropagation(); onTap(card.id); }}
       style={{ zIndex: total - index }}
       className="absolute left-0 right-0 cursor-pointer"
-      animate={{ y: index * CARD_PEEK }}
+      animate={{ y: index * CARD_PEEK, opacity: isDimmed ? 0.2 : 1, scale: isDimmed ? 0.97 : 1 }}
       transition={springSmooth}
-      whileTap={{ scale: 0.98 }}
     >
-      <div
+      {/* Pixel burst — lives outside overflow-hidden card div */}
+      <AnimatePresence>
+        {isPressing && BURST_PARTICLES.map((p, i) => (
+          <motion.div
+            key={i}
+            initial={{ x: 0, y: 0, opacity: 0.9, scale: 0 }}
+            animate={{ x: p.x, y: p.y, opacity: 0, scale: 1 }}
+            exit={{}}
+            transition={{ duration: 0.38, ease: [0.2, 0, 0.4, 1], delay: 0.03 }}
+            style={{
+              position: "absolute",
+              left: "50%",
+              top: CARD_HEIGHT / 2,
+              width: p.w,
+              height: p.h,
+              background: from,
+              borderRadius: 1,
+              pointerEvents: "none",
+              zIndex: 10,
+              marginLeft: -p.w / 2,
+              marginTop: -p.h / 2,
+            }}
+          />
+        ))}
+      </AnimatePresence>
+
+      <motion.div
+        animate={{ scale: isPressing ? 0.93 : 1 }}
+        transition={{ duration: 0.12, ease: "easeOut" }}
         className="relative mx-auto rounded-lg overflow-hidden shadow-xl"
         style={{
           background: cardImage ? "#000" : `linear-gradient(135deg, ${from}, ${to})`,
           height: CARD_HEIGHT,
-          border: hasPromo ? "1px solid rgba(249,115,22,0.35)" : "none",
-          boxShadow: hasPromo ? `0 0 24px ${from}66` : undefined,
+          border: isPressing
+            ? `1.5px solid ${from}cc`
+            : hasPromo
+              ? "1px solid rgba(249,115,22,0.35)"
+              : "none",
+          boxShadow: isPressing
+            ? `0 0 32px ${from}88, 0 0 8px ${from}44`
+            : hasPromo
+              ? `0 0 24px ${from}66`
+              : undefined,
         }}
       >
         {cardImage ? (
@@ -105,34 +164,22 @@ function WalletCard({
               className="absolute inset-0 w-full h-full object-cover"
               draggable={false}
             />
-            <div
-              className="absolute top-0 right-6 flex flex-col items-center pt-3 gap-1 z-10"
-              style={{
-                width: 44,
-                height: 78,
-                background: "#000",
-                clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)",
-              }}
-            >
-              <span className="text-white font-bold text-sm leading-none">{card.categoryValue}x</span>
-              {hasPromo && <Flame className="w-3 h-3 text-orange-400" />}
-            </div>
           </div>
         ) : (
           <>
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 pointer-events-none" />
-            {card.rank === 1 && (
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 z-10 ${
-                  hasPromo ? "bg-orange-500/90 text-white" : "bg-yellow-400/90 text-black"
-                }`}
-              >
-                {hasPromo ? <Flame className="w-3 h-3" /> : <Trophy className="w-3 h-3" />}
-                {hasPromo ? "HOT DEAL" : "BEST"}
-              </motion.div>
-            )}
+            {/* White flash on press */}
+            <AnimatePresence>
+              {isPressing && (
+                <motion.div
+                  initial={{ opacity: 0.25 }}
+                  animate={{ opacity: 0 }}
+                  exit={{}}
+                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0 bg-white pointer-events-none z-10"
+                />
+              )}
+            </AnimatePresence>
             <div className="relative p-5 flex flex-col" style={{ height: CARD_HEIGHT }}>
               <div className="flex items-center justify-between mb-5">
                 <span className="text-white/80 text-sm font-medium tracking-wide">{card.issuer}</span>
@@ -167,7 +214,7 @@ function WalletCard({
             </div>
           </>
         )}
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
@@ -184,16 +231,14 @@ function CardDetailPage({
   onClose: () => void;
   last4?: string;
 }) {
-  const [flipped, setFlipped] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [from, to] = cardGradients[card.id] || ["#333", "#555"];
   const cardImage = cardImages[card.id];
   const hasPromo = !!card.activePromotion;
 
   useEffect(() => {
-    const t1 = setTimeout(() => setFlipped(true), 80);
-    const t2 = setTimeout(() => setShowContent(true), 700);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    const t = setTimeout(() => setShowContent(true), 300);
+    return () => clearTimeout(t);
   }, []);
 
   return (
@@ -222,89 +267,50 @@ function CardDetailPage({
           </motion.h2>
         </div>
 
-        {/* Flip card */}
-        <div className="px-5 mb-6" style={{ perspective: 1400 }}>
+        {/* Card face */}
+        <div className="px-5 mb-6">
           <motion.div
-            animate={{ rotateY: flipped ? 180 : 0 }}
-            transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
-            style={{ transformStyle: "preserve-3d", height: CARD_HEIGHT, position: "relative" }}
+            initial={{ scale: 0.88, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.32, ease: [0.2, 0, 0.2, 1] }}
+            className="rounded-2xl overflow-hidden shadow-2xl"
+            style={{ height: CARD_HEIGHT }}
           >
-            {/* Front face */}
-            <div
-              className="absolute inset-0 rounded-2xl overflow-hidden shadow-xl"
-              style={{ backfaceVisibility: "hidden" }}
-            >
-              {cardImage ? (
-                <img src={cardImage} alt={card.name} className="w-full h-full object-cover" draggable={false} />
-              ) : (
-                <div
-                  className="w-full h-full relative"
-                  style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10" />
-                  <div className="relative p-5 flex flex-col h-full">
-                    <div className="flex items-center justify-between mb-5">
-                      <span className="text-white/80 text-sm font-medium tracking-wide">{card.issuer}</span>
-                      <span className="text-white/60 text-xs font-bold tracking-widest">{networkLabel(card.network)}</span>
+            {cardImage ? (
+              <img src={cardImage} alt={card.name} className="w-full h-full object-cover" draggable={false} />
+            ) : (
+              <div
+                className="w-full h-full relative"
+                style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10" />
+                <div className="relative p-5 flex flex-col h-full">
+                  <div className="flex items-center justify-between mb-5">
+                    <span className="text-white/80 text-sm font-medium tracking-wide">{card.issuer}</span>
+                    <span className="text-white/60 text-xs font-bold tracking-widest">{networkLabel(card.network)}</span>
+                  </div>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-10 h-7 rounded-md bg-yellow-300/80 border border-yellow-400/40" />
+                    <div className="w-8 h-8 rounded-full border-2 border-white/20 flex items-center justify-center">
+                      <Wifi className="w-4 h-4 text-white/40 rotate-90" />
                     </div>
-                    <div className="flex items-center gap-3 mb-5">
-                      <div className="w-10 h-7 rounded-md bg-yellow-300/80 border border-yellow-400/40" />
-                      <div className="w-8 h-8 rounded-full border-2 border-white/20 flex items-center justify-center">
-                        <Wifi className="w-4 h-4 text-white/40 rotate-90" />
-                      </div>
+                  </div>
+                  <div className="flex items-center gap-3 mb-auto text-white/40 text-xs tracking-[0.22em] font-mono">
+                    <span>••••</span><span>••••</span><span>••••</span>
+                    <span>{last4 ?? "••••"}</span>
+                  </div>
+                  <div className="text-white font-semibold text-base mb-1">{card.name}</div>
+                  <div className="flex items-end justify-between">
+                    <div className="text-white/60 text-xs max-w-[60%] leading-snug">
+                      {hasPromo ? card.activePromotion!.label : card.categoryRate}
                     </div>
-                    <div className="flex items-center gap-3 mb-auto text-white/40 text-xs tracking-[0.22em] font-mono">
-                      <span>••••</span><span>••••</span><span>••••</span>
-                      <span>{last4 ?? "••••"}</span>
-                    </div>
-                    <div className="text-white font-semibold text-base mb-1">{card.name}</div>
-                    <div className="flex items-end justify-between">
-                      <div className="text-white/60 text-xs max-w-[60%] leading-snug">
-                        {hasPromo ? card.activePromotion!.label : card.categoryRate}
-                      </div>
-                      <div className={`px-3 py-1 rounded-full ${hasPromo ? "bg-orange-500/80" : "bg-white/15"}`}>
-                        <span className="text-white font-bold text-sm">{card.categoryValue}x</span>
-                      </div>
+                    <div className={`px-3 py-1 rounded-full ${hasPromo ? "bg-orange-500/80" : "bg-white/15"}`}>
+                      <span className="text-white font-bold text-sm">{card.categoryValue}x</span>
                     </div>
                   </div>
                 </div>
-              )}
-            </div>
-
-            {/* Back face — real card back style */}
-            <div
-              className="absolute inset-0 rounded-2xl overflow-hidden shadow-xl"
-              style={{
-                backfaceVisibility: "hidden",
-                transform: "rotateY(180deg)",
-                background: `linear-gradient(160deg, ${from}, ${to})`,
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/30" />
-              {/* Magnetic stripe */}
-              <div className="w-full mt-8" style={{ height: 48, background: "rgba(0,0,0,0.85)" }} />
-              {/* Signature strip + CVV */}
-              <div className="mx-4 mt-3 flex items-center gap-2">
-                <div
-                  className="flex-1 h-9 rounded flex items-center px-3"
-                  style={{
-                    background: "repeating-linear-gradient(90deg, #e8e8e8 0px, #e8e8e8 4px, #fff 4px, #fff 8px)",
-                  }}
-                >
-                  <span className="text-black/40 text-[10px] italic font-serif tracking-wide">Authorized Signature</span>
-                </div>
-                <div className="bg-white/20 rounded px-3 py-2 flex items-center gap-1.5">
-                  <span className="text-white/50 text-[9px] uppercase tracking-widest">CVV</span>
-                  <span className="text-white font-mono text-sm font-bold">•••</span>
-                </div>
               </div>
-              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                <span className="text-white/30 text-xs font-medium">{card.network}</span>
-                <span className="text-white/30 text-[10px] text-right leading-snug max-w-[180px]">
-                  Property of {card.issuer}
-                </span>
-              </div>
-            </div>
+            )}
           </motion.div>
         </div>
 
@@ -504,6 +510,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<SpendCategory | null>(null);
   const [detailCard, setDetailCard] = useState<CardWithRank | null>(null);
+  const [pressingCardId, setPressingCardId] = useState<number | null>(null);
   const [showAddSheet, setShowAddSheet] = useState(false);
 
   useEffect(() => {
@@ -560,10 +567,15 @@ export default function Home() {
   const activeCategoryLabel = categories.find((c) => c.key === effectiveCategory)?.label ?? "this";
   const stackHeight = (ranked.length - 1) * CARD_PEEK + CARD_HEIGHT + 20;
 
-  const handleCardTap = (id: number) => {
+  const handleCardTap = useCallback((id: number) => {
     const card = ranked.find((c) => c.id === id);
-    if (card) setDetailCard(card);
-  };
+    if (!card) return;
+    setPressingCardId(id);
+    setTimeout(() => {
+      setDetailCard(card);
+      setPressingCardId(null);
+    }, 380);
+  }, [ranked]);
 
   return (
     <div className="min-h-screen bg-black text-white flex justify-center">
@@ -645,14 +657,14 @@ export default function Home() {
               exit={{ opacity: 0, y: -8 }}
               className="mx-5 mb-4 rounded-2xl overflow-hidden"
               style={{
-                background: `linear-gradient(135deg, ${(cardGradients[bestCard.id] || ["#333", "#555"])[0]}88, ${(cardGradients[bestCard.id] || ["#333", "#555"])[1]}44)`,
+                background: "rgba(255,255,255,0.05)",
                 border: bestCard.activePromotion
                   ? "1px solid rgba(249,115,22,0.35)"
                   : "1px solid rgba(255,255,255,0.08)",
               }}
             >
               <div className="px-4 py-3 flex items-center gap-3">
-                <div className={`p-2 rounded-xl ${bestCard.activePromotion ? "bg-orange-500/20" : "bg-yellow-400/20"}`}>
+                <div className="p-1">
                   {bestCard.activePromotion
                     ? <Flame className="w-5 h-5 text-orange-400" />
                     : <Trophy className="w-5 h-5 text-yellow-400" />
@@ -712,6 +724,7 @@ export default function Home() {
                   total={ranked.length}
                   onTap={handleCardTap}
                   last4={cardLast4[card.id]}
+                  pressingCardId={pressingCardId}
                 />
               ))}
             </div>
