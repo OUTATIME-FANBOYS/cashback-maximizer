@@ -55,17 +55,21 @@ export const cardGradients: Record<number, [string, string]> = {
 };
 
 const categoryKeywords: Record<SpendCategory, string[]> = {
-  dining:    ["dining", "restaurant", "food"],
-  groceries: ["grocery", "supermarket"],
-  gas:       ["gas", "fuel"],
-  travel:    ["travel", "hotel", "car rental", "rental car", "flight", "airline"],
-  streaming: ["streaming"],
-  flights:   ["flight", "airline"],
-  hotels:    ["hotel"],
-  pharmacy:  ["pharmacy", "drug", "drugstore"],
-  online:    ["online", "amazon", "e-commerce", "internet"],
-  all:       ["all", "other", "every"],
+  dining:    ["dining", "restaurant", "restaurants", "food", "cafe", "coffee", "bar", "eat", "takeout", "delivery"],
+  groceries: ["grocery", "groceries", "supermarket", "market", "food store"],
+  gas:       ["gas", "fuel", "gasoline", "petrol", "ev charging", "electric vehicle", "ev"],
+  travel:    ["travel", "hotel", "car rental", "rental car", "flight", "airline", "transit", "transportation", "commute"],
+  streaming: ["streaming", "video", "music", "subscription", "digital media"],
+  flights:   ["flight", "airline", "air travel", "airfare", "plane"],
+  hotels:    ["hotel", "motel", "lodging", "resort", "inn", "accommodation"],
+  pharmacy:  ["pharmacy", "drug", "drugstore", "prescription", "medical", "health", "rx"],
+  online:    ["online", "amazon", "e-commerce", "internet", "web", "digital", "shop online"],
+  all:       ["all", "other", "every", "everything", "general"],
 };
+
+// Known restaurant chains → dining
+const RESTAURANT_CHAINS =
+  /chipotle|mcdonald|burger.?king|wendy|taco.?bell|chick.?fil.?a|popeyes|kfc\b|subway\b|domino|papa.?john|pizza.?hut|little.?caesar|panera|sweetgreen|cava\b|shake.?shack|five.?guys|in.?n.?out|whataburger|sonic\b|dairy.?queen|arby|panda.?express|olive.?garden|applebee|chili.?s\b|red.?lobster|outback|cheesecake.?factory|ihop\b|denny|waffle.?house|cracker.?barrel|texas.?roadhouse|longhorn|buffalo.?wild.?wings|bww\b|noodles|starbucks|dunkin|tim.?hortons|peet|blue.?bottle|philz|toast\b|yelp\b|opentable/i;
 
 // Natural language query → SpendCategory. Order is intentional (more specific first).
 export function classifyQuery(query: string): SpendCategory {
@@ -76,8 +80,9 @@ export function classifyQuery(query: string): SpendCategory {
   if (/amazon|ebay|etsy|online shop|e.?commerce|shop online/i.test(q)) return "online";
   if (/pharma|drug\s?store|drugstore|cvs\b|walgreens|rite.?aid|prescription|medicine\b/i.test(q)) return "pharmacy";
   if (/gas\b|fuel|gasoline|petrol|shell\b|chevron|exxon|bp\b|mobil\b|sunoco/i.test(q)) return "gas";
-  if (/grocer|supermarket|whole.?foods|trader.?joe|safeway|kroger|publix|wegmans|costco|aldi/i.test(q)) return "groceries";
-  if (/restaurant|dining|dinner|lunch|breakfast|cafe|coffee|bar\b|pub\b|eat\b|pizza|burger|sushi|doordash|uber.?eats|grubhub|chipotle|mcdonald|starbucks|food\b/i.test(q)) return "dining";
+  if (/grocer|supermarket|whole.?foods|trader.?joe|safeway|kroger|publix|wegmans|costco|aldi|sprouts|meijer|heb\b/i.test(q)) return "groceries";
+  if (/restaurant|dining|dinner|lunch|breakfast|cafe|coffee|bar\b|pub\b|eat\b|pizza|burger|sushi|doordash|uber.?eats|grubhub|seamless|food\b/i.test(q)) return "dining";
+  if (RESTAURANT_CHAINS.test(q)) return "dining";
   if (/travel|trip|vacation|holiday|uber\b|lyft|taxi|car.?rental|hertz|enterprise\b|avis\b|transit/i.test(q)) return "travel";
   return "all";
 }

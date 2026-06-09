@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Sparkles,
+  Mic,
   CreditCard,
   Plus,
   X,
@@ -131,23 +131,32 @@ export default function Home() {
           <p className="text-white/40 text-xs font-medium uppercase tracking-wider mb-2.5">
             What are you spending on?
           </p>
-          <div className="relative">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 pointer-events-none" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => handleSearchChange(e.target.value)}
-              placeholder="Coffee shop, gas station, Amazon..."
-              className="w-full bg-[#1c1c1e] border border-white/8 rounded-2xl pl-10 pr-10 py-3 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-white/20 transition-colors"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => { setSearchQuery(""); setSelectedCategory(null); }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white/15 flex items-center justify-center"
-              >
-                <X className="w-3 h-3 text-white/60" />
-              </button>
-            )}
+          <div className="flex items-center gap-2">
+            <div className="relative flex-1">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 pointer-events-none" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => handleSearchChange(e.target.value)}
+                placeholder="Coffee shop, gas station, Amazon..."
+                className="w-full bg-[#1c1c1e] border border-white/8 rounded-2xl pl-10 pr-10 py-3 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-white/20 transition-colors"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => { setSearchQuery(""); setSelectedCategory(null); }}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white/15 flex items-center justify-center"
+                >
+                  <X className="w-3 h-3 text-white/60" />
+                </button>
+              )}
+            </div>
+            <motion.button
+              whileTap={{ scale: 0.92 }}
+              onClick={() => setShowAskSheet(true)}
+              className="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/8"
+            >
+              <Mic className="w-4 h-4 text-white/60" />
+            </motion.button>
           </div>
         </div>
 
@@ -274,34 +283,9 @@ export default function Home() {
         <AskSheet
           open={showAskSheet}
           onClose={() => setShowAskSheet(false)}
-          myCardIds={myCardIds}
-          cardLast4={cardLast4}
-          cardHeight={cardHeight}
-          onOpenCard={(card) => setDetailCard(card)}
+          onResult={(query) => { setSearchQuery(query); setSelectedCategory(null); }}
         />
 
-        {/* ─── Floating Ask Button ─── */}
-        <AnimatePresence>
-          {!showAddSheet && !detailCard && !showAskSheet && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.2 }}
-              className="fixed bottom-8 left-1/2 -translate-x-1/2 z-30"
-            >
-              <motion.button
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowAskSheet(true)}
-                className="flex items-center gap-2 px-5 py-3.5 rounded-full bg-white text-black font-semibold text-sm"
-                style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1)" }}
-              >
-                <Sparkles className="w-4 h-4 text-purple-600" />
-                Which card should I use?
-              </motion.button>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
 
       {/* ─── Card Detail ─── */}
