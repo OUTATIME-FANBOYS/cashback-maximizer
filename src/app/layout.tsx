@@ -22,13 +22,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Cashback Max",
+  title: "CardSense",
   description: "Find the best credit card for every purchase",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Cashback Max",
+    title: "CardSense",
   },
 };
 

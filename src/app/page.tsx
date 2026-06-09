@@ -45,25 +45,6 @@ const CARD_PEEK   = 72;
 const springSmooth = { type: "spring" as const, stiffness: 300, damping: 30 };
 const springBouncy = { type: "spring" as const, stiffness: 400, damping: 28 };
 
-/* ───── press burst particles (fixed positions, no randomness) ───── */
-const BURST_PARTICLES: { x: number; y: number; w: number; h: number }[] = [
-  { x:   0, y: -62, w: 4, h: 4 },
-  { x:  26, y: -57, w: 3, h: 5 },
-  { x:  50, y: -40, w: 5, h: 3 },
-  { x:  62, y:  -8, w: 3, h: 3 },
-  { x:  62, y:  18, w: 4, h: 4 },
-  { x:  48, y:  42, w: 5, h: 5 },
-  { x:  22, y:  60, w: 3, h: 3 },
-  { x:  -6, y:  65, w: 4, h: 4 },
-  { x: -30, y:  57, w: 3, h: 5 },
-  { x: -52, y:  40, w: 5, h: 3 },
-  { x: -64, y:  12, w: 3, h: 3 },
-  { x: -60, y: -16, w: 4, h: 4 },
-  { x: -44, y: -44, w: 5, h: 3 },
-  { x: -18, y: -62, w: 3, h: 3 },
-  { x:  36, y: -14, w: 3, h: 3 },
-  { x: -36, y:  30, w: 3, h: 3 },
-];
 
 /* ───── helpers ───── */
 function networkLabel(n: string) {
@@ -88,7 +69,6 @@ function WalletCard({
   total,
   onTap,
   last4,
-  pressingCardId,
   cardHeight,
 }: {
   card: CardWithRank;
@@ -96,126 +76,96 @@ function WalletCard({
   total: number;
   onTap: (id: number) => void;
   last4?: string;
-  pressingCardId: number | null;
   cardHeight: number;
 }) {
   const [from, to] = cardGradients[card.id] || ["#333", "#555"];
   const hasPromo = !!card.activePromotion;
   const cardImage = cardImages[card.id];
-  const isPressing = pressingCardId === card.id;
-  const isDimmed   = pressingCardId !== null && !isPressing;
+  const [isPressed, setIsPressed] = useState(false);
 
   return (
     <motion.div
-      onClick={(e) => { e.stopPropagation(); onTap(card.id); }}
+      onPointerDown={(e) => { e.stopPropagation(); setIsPressed(true); }}
+      onPointerLeave={() => setIsPressed(false)}
+      onPointerCancel={() => setIsPressed(false)}
+      onClick={(e) => {
+        e.stopPropagation();
+        setIsPressed(false);
+        setTimeout(() => onTap(card.id), 60);
+      }}
       style={{ zIndex: total - index }}
       className="absolute left-0 right-0 cursor-pointer"
-      animate={{ y: index * CARD_PEEK, opacity: isDimmed ? 0.2 : 1, scale: isDimmed ? 0.97 : 1 }}
+      animate={{ y: index * CARD_PEEK }}
       transition={springSmooth}
     >
-      {/* Pixel burst — lives outside overflow-hidden card div */}
-      <AnimatePresence>
-        {isPressing && BURST_PARTICLES.map((p, i) => (
-          <motion.div
-            key={i}
-            initial={{ x: 0, y: 0, opacity: 0.9, scale: 0 }}
-            animate={{ x: p.x, y: p.y, opacity: 0, scale: 1 }}
-            exit={{}}
-            transition={{ duration: 0.38, ease: [0.2, 0, 0.4, 1], delay: 0.03 }}
-            style={{
-              position: "absolute",
-              left: "50%",
-              top: cardHeight / 2,
-              width: p.w,
-              height: p.h,
-              background: from,
-              borderRadius: 1,
-              pointerEvents: "none",
-              zIndex: 10,
-              marginLeft: -p.w / 2,
-              marginTop: -p.h / 2,
-            }}
-          />
-        ))}
-      </AnimatePresence>
-
+      {/* layoutId = shared element — this div flies to the detail page */}
       <motion.div
-        animate={{ scale: isPressing ? 0.93 : 1 }}
-        transition={{ duration: 0.12, ease: "easeOut" }}
-        className="relative mx-auto rounded-lg overflow-hidden shadow-xl"
+        layoutId={`card-face-${card.id}`}
+        transition={{ type: "spring", stiffness: 380, damping: 28 }}
+        className="relative mx-auto rounded-2xl overflow-hidden shadow-xl"
         style={{
           background: cardImage ? "#000" : `linear-gradient(135deg, ${from}, ${to})`,
           height: cardHeight,
-          border: isPressing
-            ? `1.5px solid ${from}cc`
-            : hasPromo
-              ? "1px solid rgba(249,115,22,0.35)"
-              : "none",
-          boxShadow: isPressing
-            ? `0 0 32px ${from}88, 0 0 8px ${from}44`
-            : hasPromo
-              ? `0 0 24px ${from}66`
-              : undefined,
+          border: hasPromo ? "1px solid rgba(249,115,22,0.35)" : "none",
+          boxShadow: hasPromo ? `0 0 24px ${from}66` : undefined,
         }}
       >
-        {cardImage ? (
-          <div className="relative w-full h-full">
-            <img
-              src={cardImage}
-              alt={card.name}
-              className="absolute inset-0 w-full h-full object-cover"
-              draggable={false}
-            />
-          </div>
-        ) : (
-          <>
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 pointer-events-none" />
-            {/* White flash on press */}
-            <AnimatePresence>
-              {isPressing && (
-                <motion.div
-                  initial={{ opacity: 0.25 }}
-                  animate={{ opacity: 0 }}
-                  exit={{}}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0 bg-white pointer-events-none z-10"
-                />
-              )}
-            </AnimatePresence>
-            <div className="relative p-5 flex flex-col" style={{ height: cardHeight }}>
-              <div className="flex items-center justify-between mb-5">
-                <span className="text-white/80 text-sm font-medium tracking-wide">{card.issuer}</span>
-                <span className="text-white/60 text-xs font-bold tracking-widest">{networkLabel(card.network)}</span>
-              </div>
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-7 rounded-md bg-yellow-300/80 border border-yellow-400/40" />
-                <div className="w-8 h-8 rounded-full border-2 border-white/20 flex items-center justify-center">
-                  <Wifi className="w-4 h-4 text-white/40 rotate-90" />
-                </div>
-              </div>
-              <div className="flex items-center gap-3 mb-auto text-white/40 text-xs tracking-[0.22em] font-mono">
-                <span>••••</span><span>••••</span><span>••••</span>
-                <span>{last4 ?? "••••"}</span>
-              </div>
-              <div className="text-white font-semibold text-base mb-1">{card.name}</div>
-              <div className="flex items-end justify-between">
-                <div className="text-white/60 text-xs max-w-[60%] leading-snug">
-                  {hasPromo ? card.activePromotion!.label : card.categoryRate}
-                </div>
-                <div className="flex flex-col items-end gap-1">
-                  <div className={`px-3 py-1 rounded-full ${hasPromo ? "bg-orange-500/80" : "bg-white/15 backdrop-blur-sm"}`}>
-                    <span className="text-white font-bold text-sm">{card.categoryValue}x</span>
-                  </div>
-                  {hasPromo && (
-                    <span className="text-orange-300/80 text-[10px]">
-                      until {formatExpiry(card.activePromotion!.expiry)}
-                    </span>
-                  )}
-                </div>
-              </div>
+        {/* inner div for press-down tactile feedback only */}
+        <motion.div
+          animate={{ scale: isPressed ? 0.96 : 1, y: isPressed ? 3 : 0 }}
+          transition={{ type: "spring", stiffness: isPressed ? 700 : 400, damping: isPressed ? 35 : 25 }}
+          className="w-full h-full relative"
+        >
+          {cardImage ? (
+            <div className="relative w-full h-full">
+              <img
+                src={cardImage}
+                alt={card.name}
+                className="absolute inset-0 w-full h-full object-cover"
+                draggable={false}
+              />
             </div>
-          </>
-        )}
+          ) : (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 pointer-events-none" />
+              {isPressed && (
+                <div className="absolute inset-0 bg-white/15 pointer-events-none z-10 rounded-2xl" />
+              )}
+              <div className="relative p-5 flex flex-col" style={{ height: cardHeight }}>
+                <div className="flex items-center justify-between mb-5">
+                  <span className="text-white/80 text-sm font-medium tracking-wide">{card.issuer}</span>
+                  <span className="text-white/60 text-xs font-bold tracking-widest">{networkLabel(card.network)}</span>
+                </div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-7 rounded-md bg-yellow-300/80 border border-yellow-400/40" />
+                  <div className="w-8 h-8 rounded-full border-2 border-white/20 flex items-center justify-center">
+                    <Wifi className="w-4 h-4 text-white/40 rotate-90" />
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 mb-auto text-white/40 text-xs tracking-[0.22em] font-mono">
+                  <span>••••</span><span>••••</span><span>••••</span>
+                  <span>{last4 ?? "••••"}</span>
+                </div>
+                <div className="text-white font-semibold text-base mb-1">{card.name}</div>
+                <div className="flex items-end justify-between">
+                  <div className="text-white/60 text-xs max-w-[60%] leading-snug">
+                    {hasPromo ? card.activePromotion!.label : card.categoryRate}
+                  </div>
+                  <div className="flex flex-col items-end gap-1">
+                    <div className={`px-3 py-1 rounded-full ${hasPromo ? "bg-orange-500/80" : "bg-white/15 backdrop-blur-sm"}`}>
+                      <span className="text-white font-bold text-sm">{card.categoryValue}x</span>
+                    </div>
+                    {hasPromo && (
+                      <span className="text-orange-300/80 text-[10px]">
+                        until {formatExpiry(card.activePromotion!.expiry)}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </motion.div>
       </motion.div>
     </motion.div>
   );
@@ -247,12 +197,19 @@ function CardDetailPage({
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={false}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.18 }}
-      className="fixed inset-0 z-50 bg-[#0a0a0a] overflow-y-auto"
+      className="fixed inset-0 z-50 overflow-y-auto"
     >
+      {/* background fades in independently — card is NOT inside this fade */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.15 }}
+        className="fixed inset-0 bg-[#0a0a0a] -z-10"
+      />
       <div className="w-full max-w-[430px] mx-auto min-h-screen">
         {/* Header */}
         <div className="px-5 pt-14 pb-4 flex items-center gap-3">
@@ -271,12 +228,11 @@ function CardDetailPage({
           </motion.h2>
         </div>
 
-        {/* Card face */}
+        {/* Card face — layoutId matches the stack card so it flies here */}
         <div className="px-5 mb-6">
           <motion.div
-            initial={{ scale: 0.88, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.32, ease: [0.2, 0, 0.2, 1] }}
+            layoutId={`card-face-${card.id}`}
+            transition={{ type: "spring", stiffness: 380, damping: 28 }}
             className="rounded-2xl overflow-hidden shadow-2xl"
             style={{ height: cardHeight }}
           >
@@ -515,7 +471,6 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<SpendCategory | null>(null);
   const [detailCard, setDetailCard] = useState<CardWithRank | null>(null);
-  const [pressingCardId, setPressingCardId] = useState<number | null>(null);
   const [showAddSheet, setShowAddSheet] = useState(false);
 
   useEffect(() => {
@@ -585,11 +540,7 @@ export default function Home() {
   const handleCardTap = useCallback((id: number) => {
     const card = ranked.find((c) => c.id === id);
     if (!card) return;
-    setPressingCardId(id);
-    setTimeout(() => {
-      setDetailCard(card);
-      setPressingCardId(null);
-    }, 380);
+    setDetailCard(card);
   }, [ranked]);
 
   return (
@@ -601,7 +552,7 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Wallet className="w-6 h-6 text-white/80" />
-              <h1 className="text-2xl font-bold tracking-tight">Cashback Max</h1>
+              <h1 className="text-2xl font-bold tracking-tight">CardSense</h1>
             </div>
             <button
               onClick={() => setShowAddSheet(true)}
@@ -739,7 +690,6 @@ export default function Home() {
                   total={ranked.length}
                   onTap={handleCardTap}
                   last4={cardLast4[card.id]}
-                  pressingCardId={pressingCardId}
                   cardHeight={cardHeight}
                 />
               ))}
