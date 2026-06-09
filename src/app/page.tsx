@@ -38,7 +38,7 @@ const categories: { key: SpendCategory; label: string; icon: typeof Utensils }[]
 ];
 
 /* ───── card dimensions ───── */
-const CARD_HEIGHT = 246;
+const CARD_ASPECT = 85.6 / 53.98; // standard ISO/IEC 7810 ID-1 ratio
 const CARD_PEEK   = 72;
 
 /* ───── spring configs ───── */
@@ -89,6 +89,7 @@ function WalletCard({
   onTap,
   last4,
   pressingCardId,
+  cardHeight,
 }: {
   card: CardWithRank;
   index: number;
@@ -96,6 +97,7 @@ function WalletCard({
   onTap: (id: number) => void;
   last4?: string;
   pressingCardId: number | null;
+  cardHeight: number;
 }) {
   const [from, to] = cardGradients[card.id] || ["#333", "#555"];
   const hasPromo = !!card.activePromotion;
@@ -123,7 +125,7 @@ function WalletCard({
             style={{
               position: "absolute",
               left: "50%",
-              top: CARD_HEIGHT / 2,
+              top: cardHeight / 2,
               width: p.w,
               height: p.h,
               background: from,
@@ -143,7 +145,7 @@ function WalletCard({
         className="relative mx-auto rounded-lg overflow-hidden shadow-xl"
         style={{
           background: cardImage ? "#000" : `linear-gradient(135deg, ${from}, ${to})`,
-          height: CARD_HEIGHT,
+          height: cardHeight,
           border: isPressing
             ? `1.5px solid ${from}cc`
             : hasPromo
@@ -180,7 +182,7 @@ function WalletCard({
                 />
               )}
             </AnimatePresence>
-            <div className="relative p-5 flex flex-col" style={{ height: CARD_HEIGHT }}>
+            <div className="relative p-5 flex flex-col" style={{ height: cardHeight }}>
               <div className="flex items-center justify-between mb-5">
                 <span className="text-white/80 text-sm font-medium tracking-wide">{card.issuer}</span>
                 <span className="text-white/60 text-xs font-bold tracking-widest">{networkLabel(card.network)}</span>
@@ -226,10 +228,12 @@ function CardDetailPage({
   card,
   onClose,
   last4,
+  cardHeight,
 }: {
   card: CardWithRank;
   onClose: () => void;
   last4?: string;
+  cardHeight: number;
 }) {
   const [showContent, setShowContent] = useState(false);
   const [from, to] = cardGradients[card.id] || ["#333", "#555"];
@@ -274,7 +278,7 @@ function CardDetailPage({
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.32, ease: [0.2, 0, 0.2, 1] }}
             className="rounded-2xl overflow-hidden shadow-2xl"
-            style={{ height: CARD_HEIGHT }}
+            style={{ height: cardHeight }}
           >
             {cardImage ? (
               <img src={cardImage} alt={card.name} className="w-full h-full object-cover" draggable={false} />
@@ -429,7 +433,7 @@ function AddCardSheet({
                     <motion.button
                       whileTap={{ scale: 0.97 }}
                       onClick={() => onToggle(card)}
-                      className="w-full rounded-2xl p-4 flex items-center gap-4 text-left"
+                      className="w-full rounded-sm p-4 flex items-center gap-4 text-left"
                       style={{
                         background: `linear-gradient(135deg, ${from}40, ${to}30)`,
                         border: isAdded
@@ -438,7 +442,7 @@ function AddCardSheet({
                       }}
                     >
                       <div
-                        className="w-14 h-9 rounded-lg overflow-hidden flex items-center justify-center flex-shrink-0"
+                        className="w-14 h-9 rounded-sm overflow-hidden flex items-center justify-center flex-shrink-0"
                         style={thumb ? undefined : { background: `linear-gradient(135deg, ${from}, ${to})` }}
                       >
                         {thumb
@@ -505,6 +509,7 @@ function AddCardSheet({
    Main Page
    ═══════════════════════════════════════════ */
 export default function Home() {
+  const [cardHeight, setCardHeight] = useState(246);
   const [myCardIds, setMyCardIds] = useState<Set<number>>(new Set());
   const [cardLast4, setCardLast4] = useState<Record<number, string>>({});
   const [searchQuery, setSearchQuery] = useState("");
@@ -512,6 +517,16 @@ export default function Home() {
   const [detailCard, setDetailCard] = useState<CardWithRank | null>(null);
   const [pressingCardId, setPressingCardId] = useState<number | null>(null);
   const [showAddSheet, setShowAddSheet] = useState(false);
+
+  useEffect(() => {
+    const update = () => {
+      const w = Math.min(window.innerWidth, 430) - 40;
+      setCardHeight(Math.round(w / CARD_ASPECT));
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   useEffect(() => {
     const saved = localStorage.getItem("cb-max-cards");
@@ -565,7 +580,7 @@ export default function Home() {
   const ranked = rankCards(myCards, effectiveCategory);
   const bestCard = ranked[0] ?? null;
   const activeCategoryLabel = categories.find((c) => c.key === effectiveCategory)?.label ?? "this";
-  const stackHeight = (ranked.length - 1) * CARD_PEEK + CARD_HEIGHT + 20;
+  const stackHeight = (ranked.length - 1) * CARD_PEEK + cardHeight + 20;
 
   const handleCardTap = useCallback((id: number) => {
     const card = ranked.find((c) => c.id === id);
@@ -725,6 +740,7 @@ export default function Home() {
                   onTap={handleCardTap}
                   last4={cardLast4[card.id]}
                   pressingCardId={pressingCardId}
+                  cardHeight={cardHeight}
                 />
               ))}
             </div>
@@ -750,6 +766,7 @@ export default function Home() {
             card={detailCard}
             onClose={() => setDetailCard(null)}
             last4={cardLast4[detailCard.id]}
+            cardHeight={cardHeight}
           />
         )}
       </AnimatePresence>
