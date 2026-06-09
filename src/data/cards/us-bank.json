@@ -1,0 +1,88 @@
+{
+  "issuer": "U.S. Bank",
+  "creditCards": [
+    {
+      "id": 25,
+      "name": "U.S. Bank Altitude Go Visa",
+      "issuer": "U.S. Bank",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "20,000 bonus points after spending $1,000 in first 90 days",
+      "aprRange": "17.49% - 27.49% variable",
+      "rewardsRate": {
+        "dining": "4x points on dining (up to $2,000 per quarter, then 1x)",
+        "groceries": "2x points at grocery stores",
+        "gas": "2x points at gas stations and EV charging",
+        "streaming": "2x points on streaming services",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases and balance transfers for 15 billing cycles",
+        "Cell phone protection up to $600",
+        "Two complimentary single-visit Priority Pass lounge visits per year",
+        "Extended warranty protection",
+        "Auto rental collision damage waiver"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 26,
+      "name": "U.S. Bank Altitude Connect Visa",
+      "issuer": "U.S. Bank",
+      "network": "Visa",
+      "type": "Travel Rewards",
+      "image": "",
+      "annualFee": 95,
+      "signupBonus": "30,000 bonus points after spending $2,000 in first 120 days",
+      "aprRange": "18.74% - 28.49% variable",
+      "rewardsRate": {
+        "portalTravel": "5x points on prepaid hotel and car reservations through U.S. Bank Travel Center",
+        "travel": "4x points on travel category purchases (airlines, hotels, car rentals, etc.)",
+        "gas": "4x points at gas stations and EV charging (up to $1,000/quarter)",
+        "dining": "2x points on dining",
+        "streaming": "2x points on streaming services",
+        "groceries": "2x points at grocery stores",
+        "other": "1x point on all other purchases"
+      },
+      "benefits": [
+        "$50 annual streaming credit",
+        "4 complimentary single-visit Priority Pass lounge visits per year",
+        "No foreign transaction fees",
+        "Cell phone protection up to $600",
+        "Trip cancellation/interruption insurance",
+        "Auto rental collision damage waiver",
+        "Baggage delay insurance"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 27,
+      "name": "U.S. Bank Cash+ Visa Signature",
+      "issuer": "U.S. Bank",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$200 bonus after spending $1,000 in first 90 days",
+      "aprRange": "17.74% - 27.99% variable",
+      "rewardsRate": {
+        "chosenCategories": "5% cash back on two categories you choose each quarter (up to $2,000 combined per quarter)",
+        "everydayCategory": "2% cash back on one everyday category you choose (gas, groceries, or restaurants)",
+        "other": "1% cash back on all other purchases",
+        "categoryOptions": "5% categories include: TV/internet/streaming, utilities, cell phone providers, fast food, gym/fitness, and more"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases and balance transfers for 15 billing cycles",
+        "Choose your own bonus categories each quarter",
+        "Extended warranty protection",
+        "Auto rental collision damage waiver",
+        "Purchase protection"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    }
+  ]
+}

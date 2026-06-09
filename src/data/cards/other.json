@@ -1,0 +1,79 @@
+{
+  "issuers": ["Apple/Goldman Sachs", "TD Bank", "Synchrony Bank"],
+  "creditCards": [
+    {
+      "id": 21,
+      "name": "Apple Card",
+      "issuer": "Apple/Goldman Sachs",
+      "network": "Mastercard",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "None",
+      "aprRange": "13.24% - 24.24% variable",
+      "rewardsRate": {
+        "apple": "3% Daily Cash at Apple Store and select partners (Uber, Exxon, Walgreens, Nike, etc.)",
+        "applePay": "2% Daily Cash on all Apple Pay purchases",
+        "other": "1% Daily Cash on physical card purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "No foreign transaction fees",
+        "No late fees or penalty rates",
+        "Daily Cash deposited to Apple Cash daily",
+        "Titanium card design",
+        "Built-in spending tracker in Wallet app",
+        "Privacy-focused with no tracking",
+        "Interest rate among the lowest available"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 22,
+      "name": "Target Circle Card",
+      "issuer": "TD Bank",
+      "network": "Mastercard",
+      "type": "Store Card",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "None",
+      "aprRange": "22.24% - 30.74% variable",
+      "rewardsRate": {
+        "target": "5% discount on eligible Target purchases (in-store and online)",
+        "targetStarbucks": "5% discount at Starbucks inside Target stores"
+      },
+      "benefits": [
+        "No annual fee",
+        "5% off on top of Target Circle deals",
+        "Free 2-day shipping on many Target.com items",
+        "Extended 30-day return window",
+        "10% off on cardmember anniversary (in store)",
+        "5% discount on Target gift cards"
+      ],
+      "creditScoreNeeded": "Fair to Good (580+)"
+    },
+    {
+      "id": 32,
+      "name": "PayPal Cashback Mastercard",
+      "issuer": "Synchrony Bank",
+      "network": "Mastercard",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "None",
+      "aprRange": "19.24% - 33.99% variable",
+      "rewardsRate": {
+        "paypal": "3% cash back on all PayPal purchases",
+        "all": "1.5% cash back everywhere Mastercard is accepted"
+      },
+      "benefits": [
+        "No annual fee",
+        "Unlimited cash back rewards",
+        "No minimum redemption amount",
+        "Cash back redeemed to PayPal balance",
+        "Use rewards for PayPal purchases or transfer to bank"
+      ],
+      "creditScoreNeeded": "Fair to Good (640+)"
+    }
+  ]
+}

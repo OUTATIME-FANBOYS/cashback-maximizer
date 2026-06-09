@@ -1,0 +1,349 @@
+{
+  "issuer": "Chase",
+  "creditCards": [
+    {
+      "id": 1,
+      "name": "Chase Sapphire Preferred",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Travel Rewards",
+      "image": "https://creditcards.chase.com/K-Marketplace/images/cardart/sapphire_preferred_card.png",
+      "annualFee": 95,
+      "signupBonus": "60,000 bonus points after spending $4,000 in first 3 months",
+      "aprRange": "21.49% - 28.49% variable",
+      "rewardsRate": {
+        "travel": "5x points on travel through Chase portal",
+        "dining": "3x points on dining",
+        "onlineGrocery": "3x points on online grocery",
+        "streaming": "3x points on streaming services",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "25% more value when redeeming for travel through Chase",
+        "$50 annual Chase Travel Hotel Credit",
+        "No foreign transaction fees",
+        "Trip cancellation/interruption insurance",
+        "Auto rental collision damage waiver",
+        "Purchase protection",
+        "Travel and emergency assistance",
+        "Complimentary DoorDash DashPass subscription"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 2,
+      "name": "Chase Sapphire Reserve",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Premium Travel",
+      "image": "https://creditcards.chase.com/K-Marketplace/images/cardart/sapphire_reserve_card.png",
+      "annualFee": 550,
+      "signupBonus": "60,000 bonus points after spending $4,000 in first 3 months",
+      "aprRange": "22.49% - 29.49% variable",
+      "rewardsRate": {
+        "travel": "10x points on hotels and car rentals through Chase portal, 5x on flights",
+        "dining": "10x points on dining through Chase Dining",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "$300 annual travel credit",
+        "50% more value when redeeming for travel through Chase",
+        "Priority Pass Select lounge access",
+        "No foreign transaction fees",
+        "$100 Global Entry or TSA PreCheck credit",
+        "Complimentary Lyft Pink membership",
+        "Trip delay reimbursement",
+        "Trip cancellation/interruption insurance",
+        "Primary auto rental coverage worldwide",
+        "Purchase protection and extended warranty"
+      ],
+      "creditScoreNeeded": "Excellent (740+)"
+    },
+    {
+      "id": 6,
+      "name": "Chase Freedom Unlimited",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "https://creditcards.chase.com/K-Marketplace/images/cardart/freedom_unlimited_card.png",
+      "annualFee": 0,
+      "signupBonus": "$200 bonus after spending $500 in first 3 months",
+      "aprRange": "20.49% - 29.24% variable",
+      "rewardsRate": {
+        "travel": "5% cash back on travel through Chase",
+        "dining": "3% cash back on dining and drugstores",
+        "all": "1.5% cash back on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 15 months",
+        "No foreign transaction fees",
+        "Purchase protection",
+        "Auto rental collision damage waiver",
+        "Cell phone protection up to $600",
+        "Extended warranty protection"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 12,
+      "name": "Chase Freedom Flex",
+      "issuer": "Chase",
+      "network": "Mastercard",
+      "type": "Cash Back",
+      "image": "https://creditcards.chase.com/K-Marketplace/images/cardart/freedom_flex_card.png",
+      "annualFee": 0,
+      "signupBonus": "$200 bonus after spending $500 in first 3 months",
+      "aprRange": "20.49% - 29.24% variable",
+      "rewardsRate": {
+        "rotating": "5% cash back on rotating categories (up to $1,500/quarter, activation required)",
+        "travel": "5% on travel through Chase",
+        "dining": "3% on dining and drugstores",
+        "all": "1% on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 15 months",
+        "No foreign transaction fees",
+        "Purchase protection",
+        "Extended warranty protection",
+        "Auto rental collision damage waiver",
+        "Trip cancellation/interruption insurance"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 19,
+      "name": "Amazon Prime Visa",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$150 Amazon gift card instantly upon approval",
+      "aprRange": "20.49% - 29.24% variable",
+      "rewardsRate": {
+        "amazon": "5% back at Amazon.com, Amazon Fresh, and Whole Foods (with Prime membership)",
+        "travel": "5% back on Chase Travel purchases",
+        "dining": "2% back at restaurants",
+        "gas": "2% back at gas stations",
+        "transit": "2% back on local transit and commuting",
+        "other": "1% back on all other purchases"
+      },
+      "benefits": [
+        "No annual fee (requires Amazon Prime membership at $139/year)",
+        "No foreign transaction fees",
+        "$150 Amazon gift card upon approval",
+        "Purchase protection",
+        "Extended warranty protection",
+        "Travel accident insurance",
+        "Amazon-specific deals and promotions"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 29,
+      "name": "Chase Ink Business Preferred",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Business Rewards",
+      "image": "",
+      "annualFee": 95,
+      "signupBonus": "100,000 bonus points after spending $8,000 in first 3 months",
+      "aprRange": "21.24% - 26.24% variable",
+      "rewardsRate": {
+        "travel": "3x points on travel",
+        "shipping": "3x points on shipping purchases",
+        "advertising": "3x points on advertising purchases (social media and search engines)",
+        "internet": "3x points on internet, cable, and phone services",
+        "lyft": "5x points on Lyft rides (through 9/30/2027)",
+        "other": "1x points on all other purchases (3x categories cap at $150,000/year)"
+      },
+      "benefits": [
+        "25% more value when redeeming for travel through Chase",
+        "Transfer points to airline and hotel partners",
+        "Cell phone protection up to $600",
+        "Trip cancellation/interruption insurance",
+        "Auto rental collision damage waiver",
+        "Purchase protection",
+        "Extended warranty protection",
+        "No foreign transaction fees"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 30,
+      "name": "Chase Ink Business Unlimited",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Business Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$750 bonus cash back after spending $6,000 in first 3 months",
+      "aprRange": "18.49% - 24.49% variable",
+      "rewardsRate": {
+        "all": "1.5% cash back on every purchase",
+        "lyft": "5% cash back on Lyft rides (through 9/30/2027)"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 12 months",
+        "Employee cards at no additional cost",
+        "Purchase protection",
+        "Extended warranty protection",
+        "Auto rental collision damage waiver",
+        "Trip cancellation/interruption insurance",
+        "No foreign transaction fees"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 35,
+      "name": "Marriott Bonvoy Boundless",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Hotel Rewards",
+      "image": "",
+      "annualFee": 95,
+      "signupBonus": "3 Free Night Awards after spending $3,000 in first 3 months, plus 1 additional Free Night after $4,000 total in 4 months",
+      "aprRange": "20.49% - 27.49% variable",
+      "rewardsRate": {
+        "marriott": "6x points per $1 at participating Marriott hotels",
+        "dining": "3x points at restaurants (up to $6,000/year)",
+        "groceries": "3x points at grocery stores (up to $6,000/year)",
+        "gas": "3x points at gas stations (up to $6,000/year)",
+        "other": "2x points on all other purchases"
+      },
+      "benefits": [
+        "Free Night Award each account anniversary (up to 35,000 points value)",
+        "Automatic Marriott Bonvoy Silver Elite status",
+        "15 Elite Night Credits toward next status level",
+        "No foreign transaction fees",
+        "Trip cancellation/interruption insurance",
+        "Baggage delay insurance",
+        "Auto rental collision damage waiver",
+        "Purchase protection"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 36,
+      "name": "World of Hyatt Credit Card",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Hotel Rewards",
+      "image": "",
+      "annualFee": 95,
+      "signupBonus": "Up to 60,000 bonus points: 30,000 after spending $3,000 in first 3 months, plus up to 30,000 more (2x on up to $15,000 in first 6 months)",
+      "aprRange": "19.49% - 27.99% variable",
+      "rewardsRate": {
+        "hyatt": "4x points at Hyatt hotels (up to 9x total with Hyatt membership)",
+        "dining": "2x points at restaurants",
+        "airlines": "2x points on airline tickets purchased directly from airlines",
+        "transit": "2x points on local transit and commuting",
+        "gym": "2x points on gym and fitness club memberships",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "Free night at Category 1-4 Hyatt hotel each card anniversary",
+        "Extra free night at Cat 1-4 after spending $15,000 in a calendar year",
+        "Automatic World of Hyatt Discoverist status",
+        "5 qualifying night credits toward next tier",
+        "No foreign transaction fees",
+        "Trip cancellation/interruption insurance",
+        "Baggage delay insurance",
+        "Auto rental collision damage waiver",
+        "Purchase protection"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 37,
+      "name": "Southwest Rapid Rewards Plus",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Airline Rewards",
+      "image": "",
+      "annualFee": 99,
+      "signupBonus": "50,000 bonus points after spending $1,000 in first 3 months",
+      "aprRange": "21.49% - 28.49% variable",
+      "rewardsRate": {
+        "southwest": "2x points on Southwest Airlines purchases",
+        "gas": "2x points at gas stations (up to $5,000/year combined)",
+        "groceries": "2x points at grocery stores (up to $5,000/year combined)",
+        "transit": "2x points on local transit and commuting",
+        "internet": "2x points on internet, cable, and phone services",
+        "streaming": "2x points on select streaming",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "3,000 anniversary bonus points each year",
+        "25% back on inflight purchases",
+        "2 EarlyBird Check-In passes per year",
+        "No foreign transaction fees",
+        "Lost luggage reimbursement",
+        "Baggage delay insurance",
+        "Trip cancellation/interruption insurance",
+        "Auto rental collision damage waiver"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 38,
+      "name": "United Gateway Card",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Airline Rewards",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "30,000 bonus miles after spending $1,000 in first 3 months",
+      "aprRange": "19.74% - 28.24% variable",
+      "rewardsRate": {
+        "united": "2x miles on United purchases",
+        "gas": "2x miles at gas stations",
+        "transit": "2x miles on local transit and commuting",
+        "other": "1x mile on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 12 months",
+        "25% back as statement credit on United inflight food, drinks, and Wi-Fi",
+        "Two free checked bags after spending $10,000/year",
+        "No foreign transaction fees",
+        "Trip cancellation/interruption insurance",
+        "Auto rental collision damage waiver",
+        "Baggage delay insurance"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 40,
+      "name": "Ink Business Cash Credit Card",
+      "issuer": "Chase",
+      "network": "Visa",
+      "type": "Business Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$350 bonus cash back after spending $3,000 in first 3 months",
+      "aprRange": "18.49% - 24.49% variable",
+      "rewardsRate": {
+        "officeSupply": "5% cash back at office supply stores (up to $25,000/year combined)",
+        "internet": "5% cash back on internet, cable, and phone services (up to $25,000/year combined)",
+        "dining": "2% cash back on dining (up to $25,000/year combined)",
+        "gas": "2% cash back at gas stations (up to $25,000/year combined)",
+        "other": "1% cash back on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 12 months",
+        "Employee cards at no additional cost",
+        "Purchase protection",
+        "Extended warranty protection",
+        "Auto rental collision damage waiver",
+        "Cell phone protection",
+        "Fraud protection with zero liability"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    }
+  ]
+}

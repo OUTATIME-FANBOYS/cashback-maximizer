@@ -1,0 +1,54 @@
+{
+  "issuer": "Discover",
+  "creditCards": [
+    {
+      "id": 8,
+      "name": "Discover it Cash Back",
+      "issuer": "Discover",
+      "network": "Discover",
+      "type": "Cash Back",
+      "image": "https://www.discover.com/credit-cards/images/cardart/cardart-discover-it-cashback.png",
+      "annualFee": 0,
+      "signupBonus": "Unlimited Cashback Match - Discover matches all cash back earned in first year",
+      "aprRange": "18.24% - 27.24% variable",
+      "rewardsRate": {
+        "rotating": "5% cash back on rotating categories (up to $1,500/quarter, activation required)",
+        "all": "1% cash back on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases and balance transfers for 15 months",
+        "No foreign transaction fees",
+        "Free FICO credit score",
+        "Freeze it feature for card security",
+        "Social Security number alerts",
+        "100% US-based customer service"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 41,
+      "name": "Discover it Miles",
+      "issuer": "Discover",
+      "network": "Discover",
+      "type": "Travel Rewards",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "Miles Match - Discover matches all miles earned at end of first year",
+      "aprRange": "18.24% - 27.24% variable",
+      "rewardsRate": {
+        "all": "1.5x miles on every purchase (effectively 3x in first year with Miles Match)"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 15 months",
+        "No foreign transaction fees",
+        "Miles never expire",
+        "Redeem miles for travel statement credits",
+        "Free FICO credit score",
+        "Freeze it feature for card security"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    }
+  ]
+}
