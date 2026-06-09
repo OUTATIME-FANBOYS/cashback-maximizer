@@ -1,0 +1,110 @@
+{
+  "issuer": "Citi",
+  "creditCards": [
+    {
+      "id": 5,
+      "name": "Citi Double Cash Card",
+      "issuer": "Citi",
+      "network": "Mastercard",
+      "type": "Cash Back",
+      "image": "https://www.citi.com/CRD/images/citi-double-cash/citi-double-cash-card.png",
+      "annualFee": 0,
+      "signupBonus": "$200 cash back after spending $1,500 in first 6 months",
+      "aprRange": "19.24% - 29.24% variable",
+      "rewardsRate": {
+        "all": "2% cash back (1% when you buy, 1% when you pay)"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on balance transfers for 18 months",
+        "No rotating categories",
+        "No caps on earnings",
+        "Citi Entertainment access"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 17,
+      "name": "Citi Custom Cash Card",
+      "issuer": "Citi",
+      "network": "Mastercard",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$200 cash back after spending $1,500 in first 6 months",
+      "aprRange": "17.99% - 27.99% variable",
+      "rewardsRate": {
+        "topCategory": "5% cash back on your top eligible spend category each billing cycle (up to $500 spent, then 1%)",
+        "other": "1% cash back on all other purchases",
+        "eligibleCategories": "Eligible 5% categories: restaurants, gas stations, grocery stores, select travel, select transit, select streaming, drugstores, home improvement stores, fitness clubs, live entertainment"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases and balance transfers for 15 months",
+        "Category automatically adjusts each billing cycle",
+        "Citi Entertainment access",
+        "4% additional cash back on hotels, car rentals, and attractions booked on Citi Travel"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 18,
+      "name": "Citi Strata Premier",
+      "issuer": "Citi",
+      "network": "Mastercard",
+      "type": "Travel Rewards",
+      "image": "",
+      "annualFee": 95,
+      "signupBonus": "60,000 bonus ThankYou points after spending $4,000 in first 3 months",
+      "aprRange": "19.49% - 27.49% variable",
+      "rewardsRate": {
+        "travel": "3x points on air travel and hotels",
+        "dining": "3x points on restaurants",
+        "groceries": "3x points on supermarkets",
+        "gas": "3x points on gas stations and EV charging",
+        "portalTravel": "10x points on hotels, car rentals and attractions booked through Citi Travel",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "$100 off a single hotel stay of $500+ booked through Citi Travel (once per year)",
+        "No foreign transaction fees",
+        "Transfer points to airline and hotel partners",
+        "Trip interruption protection",
+        "Baggage delay insurance",
+        "Worldwide car rental insurance",
+        "Citi Entertainment access"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 20,
+      "name": "Costco Anywhere Visa Card by Citi",
+      "issuer": "Citi",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "None",
+      "aprRange": "18.74% - 26.74% variable",
+      "rewardsRate": {
+        "costcoGas": "5% cash back on gas at Costco (included in $7,000 annual cap)",
+        "gas": "4% cash back on eligible gas and EV charging worldwide (up to $7,000/year combined, then 1%)",
+        "dining": "3% cash back on restaurants",
+        "travel": "3% cash back on eligible travel purchases",
+        "costco": "2% cash back on all Costco and Costco.com purchases",
+        "other": "1% cash back on all other purchases"
+      },
+      "benefits": [
+        "No annual fee with paid Costco membership",
+        "No foreign transaction fees",
+        "Cash back provided as annual reward certificate in February",
+        "Redeemable at U.S. Costco warehouses",
+        "Damage and theft purchase protection",
+        "Extended warranty protection",
+        "Travel accident insurance",
+        "Worldwide car rental insurance"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    }
+  ]
+}

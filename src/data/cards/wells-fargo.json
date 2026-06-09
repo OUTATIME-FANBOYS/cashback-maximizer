@@ -1,0 +1,85 @@
+{
+  "issuer": "Wells Fargo",
+  "creditCards": [
+    {
+      "id": 10,
+      "name": "Wells Fargo Active Cash Card",
+      "issuer": "Wells Fargo",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "https://www.wellsfargo.com/assets/images/credit-cards/active-cash/active-cash-card.png",
+      "annualFee": 0,
+      "signupBonus": "$200 cash rewards bonus after spending $500 in first 3 months",
+      "aprRange": "20.24%, 25.24%, or 29.99% variable",
+      "rewardsRate": {
+        "all": "2% cash rewards on purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases and balance transfers for 15 months",
+        "No category restrictions",
+        "Cell phone protection up to $600",
+        "My Wells Fargo Deals for personalized offers",
+        "Visa Signature benefits"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    },
+    {
+      "id": 33,
+      "name": "Bilt Mastercard",
+      "issuer": "Wells Fargo",
+      "network": "Mastercard",
+      "type": "Rewards",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "None (points earned on rent from first payment)",
+      "aprRange": "21.24% - 29.99% variable",
+      "rewardsRate": {
+        "dining": "3x points on dining",
+        "groceries": "3x points on groceries (up to $25,000/year)",
+        "travel": "2x points on travel",
+        "rent": "1x points on rent payments (no transaction fee)",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "Earn points on rent with no transaction fees",
+        "Transfer points to airline and hotel partners",
+        "No foreign transaction fees",
+        "Rent-day perks on the 1st of each month",
+        "Points count toward homeownership goals",
+        "Cell phone protection"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 42,
+      "name": "Wells Fargo Autograph Card",
+      "issuer": "Wells Fargo",
+      "network": "Visa",
+      "type": "Rewards",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "20,000 bonus points after spending $1,000 in first 3 months",
+      "aprRange": "20.24%, 25.24%, or 29.99% variable",
+      "rewardsRate": {
+        "dining": "3x points on restaurants",
+        "travel": "3x points on travel",
+        "gas": "3x points at gas stations",
+        "transit": "3x points on transit",
+        "streaming": "3x points on streaming services",
+        "phonePlans": "3x points on phone plans",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "No foreign transaction fees",
+        "0% intro APR on purchases for 12 months",
+        "Cell phone protection up to $600",
+        "My Wells Fargo Deals for personalized offers",
+        "Visa Signature benefits"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    }
+  ]
+}

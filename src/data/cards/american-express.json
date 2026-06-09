@@ -1,0 +1,206 @@
+{
+  "issuer": "American Express",
+  "creditCards": [
+    {
+      "id": 3,
+      "name": "American Express Platinum Card",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Premium Travel",
+      "image": "https://icm.aexp-static.com/content/dam/amex/us/credit-cards/features-benefits/policies/images/cardart/platinum-card.png",
+      "annualFee": 695,
+      "signupBonus": "80,000 Membership Rewards points after spending $8,000 in first 6 months",
+      "aprRange": "N/A (charge card - pay in full monthly)",
+      "rewardsRate": {
+        "flights": "5x points on flights booked directly with airlines or on amextravel.com",
+        "hotels": "5x points on hotels booked on amextravel.com",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "$200 annual hotel credit",
+        "$200 annual airline fee credit",
+        "$189 CLEAR Plus credit",
+        "$100 Saks Fifth Avenue credit",
+        "$155 Walmart+ credit",
+        "Access to Amex Centurion Lounges and Priority Pass",
+        "Fine Hotels + Resorts program",
+        "Global Lounge Collection access",
+        "$100 Global Entry or TSA PreCheck credit",
+        "No foreign transaction fees",
+        "Complimentary Gold status with Marriott and Hilton",
+        "Premium car rental privileges",
+        "Trip delay insurance",
+        "Baggage insurance"
+      ],
+      "creditScoreNeeded": "Excellent (740+)"
+    },
+    {
+      "id": 7,
+      "name": "American Express Gold Card",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Dining & Travel Rewards",
+      "image": "https://icm.aexp-static.com/content/dam/amex/us/credit-cards/features-benefits/policies/images/cardart/gold-card.png",
+      "annualFee": 250,
+      "signupBonus": "60,000 Membership Rewards points after spending $6,000 in first 6 months",
+      "aprRange": "N/A (charge card - pay in full monthly)",
+      "rewardsRate": {
+        "dining": "4x points at restaurants worldwide and at US supermarkets (up to $25k/year)",
+        "flights": "3x points on flights booked directly with airlines or on amextravel.com",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "$120 annual Uber Cash ($10/month)",
+        "$120 annual dining credit ($10/month at Grubhub, The Cheesecake Factory, etc.)",
+        "No foreign transaction fees",
+        "Baggage insurance plan",
+        "Trip delay insurance",
+        "Car rental loss and damage insurance",
+        "Resy access and benefits",
+        "Global Dining Collection"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 15,
+      "name": "Blue Cash Preferred Card from American Express",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 95,
+      "signupBonus": "$250 statement credit after spending $3,000 in first 6 months",
+      "aprRange": "19.49% - 28.49% variable",
+      "rewardsRate": {
+        "groceries": "6% cash back at U.S. supermarkets (up to $6,000/year, then 1%)",
+        "streaming": "6% cash back on select U.S. streaming subscriptions",
+        "gas": "3% cash back at U.S. gas stations",
+        "transit": "3% cash back on transit (taxis, rideshare, parking, tolls, trains, buses)",
+        "other": "1% cash back on all other purchases"
+      },
+      "benefits": [
+        "$0 intro annual fee for first year, then $95",
+        "0% intro APR on purchases and balance transfers for 12 months",
+        "Return protection",
+        "Purchase protection",
+        "Extended warranty",
+        "Car rental loss and damage insurance",
+        "Global Assist Hotline"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 16,
+      "name": "Blue Cash Everyday Card from American Express",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$200 cash back after spending $2,000 in first 6 months",
+      "aprRange": "19.49% - 28.49% variable",
+      "rewardsRate": {
+        "groceries": "3% cash back at U.S. supermarkets (up to $6,000/year, then 1%)",
+        "gas": "3% cash back at U.S. gas stations (up to $6,000/year, then 1%)",
+        "onlineRetail": "3% cash back on U.S. online retail purchases (up to $6,000/year, then 1%)",
+        "other": "1% cash back on all other purchases"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases and balance transfers for 15 months",
+        "Return protection",
+        "Purchase protection",
+        "Extended warranty",
+        "Car rental loss and damage insurance",
+        "Global Assist Hotline"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 31,
+      "name": "American Express Green Card",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Travel Rewards",
+      "image": "",
+      "annualFee": 150,
+      "signupBonus": "40,000 Membership Rewards points after spending $3,000 in first 6 months",
+      "aprRange": "19.49% - 28.49% variable",
+      "rewardsRate": {
+        "travel": "3x points on travel worldwide (flights, hotels, car rentals, rideshares, etc.)",
+        "transit": "3x points on transit (trains, taxis, rideshare, tolls, buses, subways)",
+        "dining": "3x points at restaurants worldwide",
+        "other": "1x points on all other purchases"
+      },
+      "benefits": [
+        "Up to $199 CLEAR Plus credit",
+        "No foreign transaction fees",
+        "Transfer points to airline and hotel partners",
+        "Baggage insurance plan",
+        "Car rental loss and damage insurance",
+        "Trip delay insurance",
+        "Global Assist Hotline"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 34,
+      "name": "Hilton Honors American Express Surpass",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Hotel Rewards",
+      "image": "",
+      "annualFee": 150,
+      "signupBonus": "130,000 Hilton Honors Bonus Points plus a Free Night Reward after spending $3,000 in first 6 months",
+      "aprRange": "17.49% - 27.49% variable",
+      "rewardsRate": {
+        "hilton": "12x Hilton Honors points on Hilton purchases",
+        "dining": "6x points at U.S. restaurants",
+        "groceries": "6x points at U.S. supermarkets",
+        "gas": "6x points at U.S. gas stations",
+        "onlineRetail": "4x points on U.S. online retail purchases",
+        "other": "3x points on all other purchases"
+      },
+      "benefits": [
+        "Complimentary Hilton Honors Gold status",
+        "Free Night Reward after spending $15,000 in a calendar year",
+        "$200 Hilton resort credit ($50 per quarter)",
+        "5th night free on award stays",
+        "No foreign transaction fees",
+        "Purchase protection",
+        "Car rental loss and damage insurance",
+        "Baggage insurance plan"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 39,
+      "name": "Delta SkyMiles Gold American Express Card",
+      "issuer": "American Express",
+      "network": "American Express",
+      "type": "Airline Rewards",
+      "image": "",
+      "annualFee": 150,
+      "signupBonus": "70,000 bonus miles after spending $3,000 in first 6 months",
+      "aprRange": "19.49% - 28.49% variable",
+      "rewardsRate": {
+        "delta": "2x miles on Delta purchases",
+        "dining": "2x miles at restaurants worldwide",
+        "groceries": "2x miles at U.S. supermarkets",
+        "other": "1x mile on all other purchases"
+      },
+      "benefits": [
+        "$0 intro annual fee for first year, then $150",
+        "$200 Delta Flight Credit after spending $10,000 in a year",
+        "Up to $100/year statement credit for Delta Stays hotel bookings",
+        "First checked bag free on Delta flights",
+        "Priority boarding on Delta flights",
+        "No foreign transaction fees",
+        "Trip delay insurance",
+        "Baggage insurance plan",
+        "Car rental loss and damage insurance"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "issuer": "Bank of America",
+  "creditCards": [
+    {
+      "id": 11,
+      "name": "Bank of America Premium Rewards",
+      "issuer": "Bank of America",
+      "network": "Visa",
+      "type": "Travel Rewards",
+      "image": "https://www.bankofamerica.com/credit-cards/images/premium-rewards-credit-card.png",
+      "annualFee": 95,
+      "signupBonus": "60,000 bonus points after spending $4,000 in first 90 days",
+      "aprRange": "19.24% - 29.24% variable",
+      "rewardsRate": {
+        "travel": "2x points on travel and dining",
+        "all": "1.5x points on all other purchases"
+      },
+      "benefits": [
+        "$100 annual airline incidental credit",
+        "No foreign transaction fees",
+        "$100 TSA PreCheck or Global Entry credit",
+        "Up to $600 cell phone protection",
+        "Trip cancellation and interruption insurance",
+        "Lost luggage reimbursement",
+        "Concierge service",
+        "Preferred Rewards bonus (up to 75% more rewards for BoA customers)"
+      ],
+      "creditScoreNeeded": "Good to Excellent (670+)"
+    },
+    {
+      "id": 28,
+      "name": "Bank of America Customized Cash Rewards",
+      "issuer": "Bank of America",
+      "network": "Visa",
+      "type": "Cash Back",
+      "image": "",
+      "annualFee": 0,
+      "signupBonus": "$200 cash rewards bonus after spending $1,000 in first 90 days",
+      "aprRange": "17.49% - 27.49% variable",
+      "rewardsRate": {
+        "chosenCategory": "3% cash back in the category of your choice (gas, online shopping, dining, travel, drugstores, or home improvement — up to $2,500/quarter combined with grocery)",
+        "groceries": "2% cash back at grocery stores and wholesale clubs (up to $2,500/quarter combined with choice category)",
+        "other": "1% cash back on all other purchases",
+        "firstYearBoost": "6% cash back in choice category for the first year (new accounts)"
+      },
+      "benefits": [
+        "No annual fee",
+        "0% intro APR on purchases for 15 billing cycles",
+        "Change your 3% category once per month",
+        "Preferred Rewards members earn 25%-75% more cash back",
+        "Contactless payments",
+        "Overdraft protection (for BoA checking customers)"
+      ],
+      "creditScoreNeeded": "Good (670+)"
+    }
+  ]
+}
