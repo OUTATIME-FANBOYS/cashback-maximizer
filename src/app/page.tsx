@@ -601,7 +601,7 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Wallet className="w-6 h-6 text-white/80" />
-              <h1 className="text-2xl font-bold tracking-tight">Cashback Max</h1>
+              <h1 className="text-2xl font-bold tracking-tight">CardSense</h1>
             </div>
             <button
               onClick={() => setShowAddSheet(true)}
