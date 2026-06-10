@@ -10,7 +10,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "seed-kv": "npx tsx --env-file=.env.local scripts/seed-cards-to-kv.ts",
-    "upload-cards": "npx tsx scripts/upload-card-images.ts",
+    "upload-cards": "npx tsx --env-file=.env.local scripts/upload-card-images.ts",
     "mobile": "bun run build && bunx cap sync",
     "mobile:ios": "bun run mobile && bunx cap open ios",
     "mobile:android": "bun run mobile && bunx cap open android"
