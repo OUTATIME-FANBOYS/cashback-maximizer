@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, Wifi, Flame } from "lucide-react";
+import { ChevronLeft, Flame } from "lucide-react";
 import { CardWithRank } from "@/types";
-import { cardGradients, cardImages } from "@/lib/cards";
-import { networkLabel, formatExpiry, camelToLabel } from "@/lib/formatters";
+import { formatExpiry, camelToLabel } from "@/lib/formatters";
+import { CardFace } from "@/components/CardFace";
 
 export function CardDetailPage({
   card,
@@ -19,8 +19,6 @@ export function CardDetailPage({
   cardHeight: number;
 }) {
   const [showContent, setShowContent] = useState(false);
-  const [from, to] = cardGradients[card.id] || ["#333", "#555"];
-  const cardImage = cardImages[card.id];
   const hasPromo = !!card.activePromotion;
 
   useEffect(() => {
@@ -69,44 +67,10 @@ export function CardDetailPage({
           <motion.div
             layoutId={`card-face-${card.id}`}
             transition={{ type: "spring", stiffness: 380, damping: 28 }}
-            className="rounded-2xl overflow-hidden shadow-2xl"
+            className="rounded-2xl overflow-hidden shadow-2xl relative"
             style={{ height: cardHeight }}
           >
-            {cardImage ? (
-              <img src={cardImage} alt={card.name} className="w-full h-full object-cover" draggable={false} />
-            ) : (
-              <div
-                className="w-full h-full relative"
-                style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10" />
-                <div className="relative p-5 flex flex-col h-full">
-                  <div className="flex items-center justify-between mb-5">
-                    <span className="text-white/80 text-sm font-medium tracking-wide">{card.issuer}</span>
-                    <span className="text-white/60 text-xs font-bold tracking-widest">{networkLabel(card.network)}</span>
-                  </div>
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="w-10 h-7 rounded-md bg-yellow-300/80 border border-yellow-400/40" />
-                    <div className="w-8 h-8 rounded-full border-2 border-white/20 flex items-center justify-center">
-                      <Wifi className="w-4 h-4 text-white/40 rotate-90" />
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 mb-auto text-white/40 text-xs tracking-[0.22em] font-mono">
-                    <span>••••</span><span>••••</span><span>••••</span>
-                    <span>{last4 ?? "••••"}</span>
-                  </div>
-                  <div className="text-white font-semibold text-base mb-1">{card.name}</div>
-                  <div className="flex items-end justify-between">
-                    <div className="text-white/60 text-xs max-w-[60%] leading-snug">
-                      {hasPromo ? card.activePromotion!.label : card.categoryRate}
-                    </div>
-                    <div className={`px-3 py-1 rounded-full ${hasPromo ? "bg-orange-500/80" : "bg-white/15"}`}>
-                      <span className="text-white font-bold text-sm">{card.categoryValue}x</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
+            <CardFace card={card} last4={last4} cardHeight={cardHeight} />
           </motion.div>
         </div>
 

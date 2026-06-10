@@ -1,5 +1,4 @@
-import { CreditCardData, CardWithRank, SpendCategory } from "@/types";
-import { promotions } from "@/data/promotions";
+import { CreditCardData, CardWithRank, SpendCategory, Promotion } from "@/types";
 import cardJson from "@/data/cards.json";
 
 export const allCards: CreditCardData[] = cardJson.creditCards as unknown as CreditCardData[];
@@ -123,7 +122,7 @@ function findBestRate(card: CreditCardData, category: SpendCategory): { rate: st
   return { rate: bestRate || "1x on other purchases", value: bestValue || 1 };
 }
 
-export function rankCards(cards: CreditCardData[], category: SpendCategory): CardWithRank[] {
+export function rankCards(cards: CreditCardData[], category: SpendCategory, promotions: Promotion[] = []): CardWithRank[] {
   const today = new Date();
 
   const ranked = cards.map((card) => {

@@ -1,3 +1,7 @@
+import type { SpendCategory } from "@/lib/categories";
+
+export type { SpendCategory };
+
 export interface CreditCardData {
   id: number;
   name: string;
@@ -28,15 +32,3 @@ export interface CardWithRank extends CreditCardData {
   rank: number;
   activePromotion?: Promotion;
 }
-
-export type SpendCategory =
-  | "dining"
-  | "groceries"
-  | "gas"
-  | "travel"
-  | "streaming"
-  | "flights"
-  | "hotels"
-  | "pharmacy"
-  | "online"
-  | "all";

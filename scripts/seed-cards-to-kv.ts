@@ -6,6 +6,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { Redis } from '@upstash/redis';
+import { promotions } from '../src/data/promotions';
 
 const kv = new Redis({
   url: process.env.KV_REST_API_URL!,
@@ -68,7 +69,12 @@ async function seedCards() {
       version: '2.0',
     });
 
-    console.log(`\n✅ Successfully seeded ${cards.length} cards to KV!`);
+    // Store promotions
+    console.log('  → Storing promotions...');
+    await kv.set('promotions:active', promotions);
+    console.log(`    ✓ ${promotions.length} promotions`);
+
+    console.log(`\n✅ Successfully seeded ${cards.length} cards and ${promotions.length} promotions to KV!`);
     console.log(`   ${issuers.length} issuers`);
     process.exit(0);
   } catch (error) {
