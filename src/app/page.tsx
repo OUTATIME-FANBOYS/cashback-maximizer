@@ -275,8 +275,6 @@ export default function Home() {
           onClose={() => setShowAddSheet(false)}
           myCardIds={myCardIds}
           onToggle={toggleCard}
-          cardLast4={cardLast4}
-          onSetLast4={handleSetLast4}
         />
 
         {/* ─── Ask Sheet ─── */}
