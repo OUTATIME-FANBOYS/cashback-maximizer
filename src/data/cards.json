@@ -14,7 +14,7 @@
         "travel": "5x points on travel through Chase portal",
         "otherTravel": "2x points on other travel purchases",
         "dining": "3x points on dining",
-        "onlineGrocery": "3x points on online grocery",
+        "onlineGrocery": "3x points on online grocery purchases only (excludes in-store)",
         "streaming": "3x points on streaming services",
         "other": "1x points on all other purchases"
       },
