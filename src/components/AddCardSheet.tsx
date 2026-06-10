@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CreditCard, ChevronLeft, Check, Search, X } from "lucide-react";
 import { CreditCardData } from "@/types";
-import { allCards, cardGradients, cardImages } from "@/lib/cards";
+import { cardGradients, cardImages } from "@/lib/cards";
 import { springBouncy } from "@/lib/constants";
 
 export function AddCardSheet({
@@ -12,11 +12,13 @@ export function AddCardSheet({
   onClose,
   myCardIds,
   onToggle,
+  cards,
 }: {
   open: boolean;
   onClose: () => void;
   myCardIds: Set<number>;
   onToggle: (card: CreditCardData) => void;
+  cards: CreditCardData[];
 }) {
   const [filterQuery, setFilterQuery] = useState("");
 
@@ -25,13 +27,13 @@ export function AddCardSheet({
   }, [open]);
 
   const filteredCards = filterQuery.trim()
-    ? allCards.filter(
+    ? cards.filter(
         (c) =>
           c.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
           c.issuer.toLowerCase().includes(filterQuery.toLowerCase()) ||
           c.network.toLowerCase().includes(filterQuery.toLowerCase())
       )
-    : allCards;
+    : cards;
 
   return (
     <AnimatePresence>
@@ -55,7 +57,8 @@ export function AddCardSheet({
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={springBouncy}
-            className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] z-50 bg-[#1c1c1e] rounded-t-3xl max-h-[85vh] overflow-hidden"
+            className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] z-50 rounded-t-3xl max-h-[85vh] overflow-hidden border-t border-x border-white/[0.12]"
+            style={{ background: "rgba(18, 18, 20, 0.72)", backdropFilter: "blur(32px) saturate(180%)", WebkitBackdropFilter: "blur(32px) saturate(180%)" }}
           >
             <div className="flex justify-center py-3">
               <div className="w-10 h-1 bg-white/20 rounded-full" />
@@ -110,10 +113,14 @@ export function AddCardSheet({
                       onClick={() => onToggle(card)}
                       className="w-full rounded-sm p-4 flex items-center gap-4 text-left"
                       style={{
-                        background: `linear-gradient(135deg, ${from}40, ${to}30)`,
+                        background: "rgba(255,255,255,0.05)",
                         border: isAdded
-                          ? "1.5px solid rgba(74, 222, 128, 0.5)"
+                          ? "1.5px solid rgba(74, 222, 128, 0.45)"
                           : "1.5px solid rgba(255,255,255,0.08)",
+                        boxShadow: isAdded
+                          ? "0 0 0 1px rgba(74,222,128,0.12) inset, 0 2px 16px rgba(74,222,128,0.18), 0 0 24px rgba(74,222,128,0.08)"
+                          : undefined,
+                        backdropFilter: isAdded ? "blur(4px)" : undefined,
                       }}
                     >
                       <div

@@ -12,9 +12,8 @@ import {
   Search,
   Flame,
 } from "lucide-react";
-import { CardWithRank, SpendCategory } from "@/types";
+import { CardWithRank, CreditCardData, SpendCategory } from "@/types";
 import { allCards, rankCards, classifyQuery } from "@/lib/cards";
-import { CreditCardData } from "@/types";
 import { CARD_ASPECT, CARD_PEEK } from "@/lib/constants";
 import { categories } from "@/lib/categories";
 import { formatExpiry } from "@/lib/formatters";
@@ -25,6 +24,7 @@ import { AskSheet } from "@/components/AskSheet";
 
 export default function Home() {
   const [cardHeight, setCardHeight] = useState(246);
+  const [cards, setCards] = useState<CreditCardData[]>(allCards);
   const [myCardIds, setMyCardIds] = useState<Set<number>>(new Set());
   const [cardLast4, setCardLast4] = useState<Record<number, string>>({});
   const [searchQuery, setSearchQuery] = useState("");
@@ -41,6 +41,17 @@ export default function Home() {
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/cards")
+      .then((r) => r.json())
+      .then((data) => {
+        if (Array.isArray(data.creditCards) && data.creditCards.length > 0) {
+          setCards(data.creditCards);
+        }
+      })
+      .catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -91,7 +102,7 @@ export default function Home() {
     setSearchQuery("");
   };
 
-  const myCards = allCards.filter((c) => myCardIds.has(c.id));
+  const myCards = cards.filter((c) => myCardIds.has(c.id));
   const ranked = rankCards(myCards, effectiveCategory);
   const bestCard = ranked[0] ?? null;
   const activeCategoryLabel = categories.find((c) => c.key === effectiveCategory)?.label ?? "this";
@@ -275,6 +286,7 @@ export default function Home() {
           onClose={() => setShowAddSheet(false)}
           myCardIds={myCardIds}
           onToggle={toggleCard}
+          cards={cards}
         />
 
         {/* ─── Ask Sheet ─── */}
