@@ -33,7 +33,13 @@ export function CardDetailPage({
       initial={false}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.18 }}
-      className="fixed inset-0 z-50 overflow-y-auto"
+      drag="y"
+      dragConstraints={{ top: 0 }}
+      dragElastic={0.15}
+      onDragEnd={(_, info) => {
+        if (info.offset.y > 100 || info.velocity.y > 500) onClose();
+      }}
+      className="fixed inset-0 z-50"
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -42,7 +48,7 @@ export function CardDetailPage({
         transition={{ duration: 0.15 }}
         className="fixed inset-0 bg-[#0a0a0a] -z-10"
       />
-      <div className="w-full max-w-[430px] mx-auto min-h-screen">
+      <div className="w-full max-w-[430px] mx-auto h-screen overflow-y-auto">
         <div className="px-5 pt-14 pb-4 flex items-center gap-3">
           <button
             onClick={onClose}
