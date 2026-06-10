@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CreditCard, ChevronLeft, Check, Search, X } from "lucide-react";
 import { CreditCardData } from "@/types";
-import { allCards, cardGradients, cardImages } from "@/lib/cards";
+import { cardGradients, cardImages } from "@/lib/cards";
 import { springBouncy } from "@/lib/constants";
 
 export function AddCardSheet({
@@ -12,11 +12,13 @@ export function AddCardSheet({
   onClose,
   myCardIds,
   onToggle,
+  cards,
 }: {
   open: boolean;
   onClose: () => void;
   myCardIds: Set<number>;
   onToggle: (card: CreditCardData) => void;
+  cards: CreditCardData[];
 }) {
   const [filterQuery, setFilterQuery] = useState("");
 
@@ -25,13 +27,13 @@ export function AddCardSheet({
   }, [open]);
 
   const filteredCards = filterQuery.trim()
-    ? allCards.filter(
+    ? cards.filter(
         (c) =>
           c.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
           c.issuer.toLowerCase().includes(filterQuery.toLowerCase()) ||
           c.network.toLowerCase().includes(filterQuery.toLowerCase())
       )
-    : allCards;
+    : cards;
 
   return (
     <AnimatePresence>
