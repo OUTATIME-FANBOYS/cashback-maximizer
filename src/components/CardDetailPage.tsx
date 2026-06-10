@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, Wifi, Flame } from "lucide-react";
 import { CardWithRank } from "@/types";
 import { cardGradients, cardImages } from "@/lib/cards";
-import { networkLabel, formatExpiry } from "@/lib/formatters";
+import { networkLabel, formatExpiry, camelToLabel } from "@/lib/formatters";
 
 export function CardDetailPage({
   card,
@@ -134,7 +134,7 @@ export function CardDetailPage({
             <div className="space-y-2.5">
               {Object.entries(card.rewardsRate).map(([key, value]) => (
                 <div key={key} className="flex items-start justify-between gap-4">
-                  <span className="text-white/70 text-sm capitalize shrink-0">{key}</span>
+                  <span className="text-white/70 text-sm shrink-0">{camelToLabel(key)}</span>
                   <span className="text-white text-sm font-semibold text-right">{value}</span>
                 </div>
               ))}

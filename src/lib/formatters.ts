@@ -6,6 +6,13 @@ export function networkLabel(n: string): string {
   return n.toUpperCase().slice(0, 6);
 }
 
+export function camelToLabel(key: string): string {
+  return key
+    .replace(/([A-Z])/g, " $1")
+    .replace(/^./, (c) => c.toUpperCase())
+    .trim();
+}
+
 export function formatExpiry(iso: string): string {
   const d = new Date(iso + "T00:00:00");
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
