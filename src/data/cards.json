@@ -12,6 +12,7 @@
       "aprRange": "21.49% - 28.49% variable",
       "rewardsRate": {
         "travel": "5x points on travel through Chase portal",
+        "otherTravel": "2x points on other travel purchases",
         "dining": "3x points on dining",
         "onlineGrocery": "3x points on online grocery",
         "streaming": "3x points on streaming services",
@@ -40,8 +41,11 @@
       "signupBonus": "60,000 bonus points after spending $4,000 in first 3 months",
       "aprRange": "22.49% - 29.49% variable",
       "rewardsRate": {
-        "travel": "10x points on hotels and car rentals through Chase portal, 5x on flights",
-        "dining": "10x points on dining through Chase Dining",
+        "portalTravel": "10x points on hotels and car rentals through Chase portal",
+        "portalFlights": "5x points on flights through Chase portal",
+        "portalDining": "10x points on dining through Chase Dining",
+        "travel": "3x points on other travel purchases",
+        "dining": "3x points on dining at restaurants",
         "other": "1x points on all other purchases"
       },
       "benefits": [
@@ -102,7 +106,8 @@
       "signupBonus": "75,000 bonus miles after spending $4,000 in first 3 months",
       "aprRange": "20.99% - 29.99% variable",
       "rewardsRate": {
-        "travel": "10x miles on hotels and rental cars through Capital One Travel",
+        "hotels": "10x miles on hotels and rental cars through Capital One Travel",
+        "flights": "5x miles on flights booked through Capital One Travel",
         "all": "2x miles on all other purchases"
       },
       "benefits": [
@@ -179,7 +184,8 @@
       "signupBonus": "60,000 Membership Rewards points after spending $6,000 in first 6 months",
       "aprRange": "N/A (charge card - pay in full monthly)",
       "rewardsRate": {
-        "dining": "4x points at restaurants worldwide and at US supermarkets (up to $25k/year)",
+        "dining": "4x points at restaurants worldwide",
+        "groceries": "4x points at US supermarkets (up to $25,000/year, then 1x)",
         "flights": "3x points on flights booked directly with airlines or on amextravel.com",
         "other": "1x points on all other purchases"
       },
@@ -231,6 +237,7 @@
       "signupBonus": "75,000 bonus miles after spending $4,000 in first 3 months",
       "aprRange": "20.99% - 29.99% variable",
       "rewardsRate": {
+        "travel": "5x miles on hotels and rental cars booked through Capital One Travel",
         "all": "2x miles on every purchase"
       },
       "benefits": [
@@ -357,7 +364,7 @@
       "network": "Visa",
       "type": "Cash Back",
       "image": "https://42l1tnurs8dutsrg.public.blob.vercel-storage.com/card-images/capital-one/savorone.webp",
-      "annualFee": 39,
+      "annualFee": 0,
       "signupBonus": "None",
       "aprRange": "28.99% variable",
       "rewardsRate": {
@@ -1151,7 +1158,7 @@
   ],
   "metadata": {
     "totalCards": 42,
-    "lastUpdated": "2026-06-09",
+    "lastUpdated": "2026-06-10",
     "version": "2.0"
   }
 }
