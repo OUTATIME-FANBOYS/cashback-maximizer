@@ -90,8 +90,11 @@ export default function Home() {
   );
 
   return (
-    <div className="min-h-screen bg-black text-white flex justify-center">
-      <div className="w-full max-w-[430px] min-h-screen relative">
+    <div className="h-screen overflow-hidden bg-black text-white flex justify-center">
+      <div className="w-full max-w-[430px] h-full flex flex-col relative">
+
+        {/* ─── Sticky top section ─── */}
+        <div className="flex-shrink-0">
 
         {/* ─── Header ─── */}
         <div className="safe-top px-5 pt-4 pb-2">
@@ -195,8 +198,10 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        {/* ─── Card Stack ─── */}
-        <div className="px-5">
+        </div>{/* end sticky top */}
+
+        {/* ─── Card Stack (scrollable) ─── */}
+        <div className="flex-1 overflow-y-auto px-5 pb-8">
           {ranked.length === 0 ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
