@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, useDragControls } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronLeft, Flame } from "lucide-react";
 import { CardWithRank } from "@/types";
 import { formatExpiry, camelToLabel } from "@/lib/formatters";
@@ -19,8 +19,8 @@ export function CardDetailPage({
   cardHeight: number;
 }) {
   const [showContent, setShowContent] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
   const hasPromo = !!card.activePromotion;
-  const dragControls = useDragControls();
 
   useEffect(() => {
     const t = setTimeout(() => setShowContent(true), 300);
@@ -30,16 +30,15 @@ export function CardDetailPage({
   return (
     <motion.div
       initial={false}
-      exit={{ opacity: 0 }}
+      exit={{ opacity: 0, y: 40 }}
       transition={{ duration: 0.18 }}
       drag="y"
-      dragControls={dragControls}
-      dragListener={false}
       dragConstraints={{ top: 0 }}
-      dragElastic={0.15}
+      dragElastic={{ top: 0, bottom: 0.15 }}
       onDragEnd={(_, info) => {
-        if (info.offset.y > 100 || info.velocity.y > 500) onClose();
+        if (info.offset.y > 120 || info.velocity.y > 600) onClose();
       }}
+      style={{ touchAction: isAtTop ? "none" : "pan-y" }}
       className="fixed inset-0 z-50"
     >
       <motion.div
@@ -49,14 +48,11 @@ export function CardDetailPage({
         transition={{ duration: 0.15 }}
         className="fixed inset-0 bg-[#0a0a0a] -z-10"
       />
-      <div className="w-full max-w-[430px] mx-auto h-screen overflow-y-auto">
-        <div
-          className="flex justify-center pt-3 pb-1 cursor-grab active:cursor-grabbing touch-none select-none"
-          onPointerDown={(e) => dragControls.start(e)}
-        >
-          <div className="w-10 h-1 rounded-full bg-white/30" />
-        </div>
-        <div className="px-5 pt-10 pb-4 flex items-center gap-3">
+      <div
+        className="w-full max-w-[430px] mx-auto h-screen overflow-y-auto"
+        onScroll={(e) => setIsAtTop(e.currentTarget.scrollTop === 0)}
+      >
+        <div className="px-5 pt-14 pb-4 flex items-center gap-3">
           <button
             onClick={onClose}
             className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center active:bg-white/20 transition-colors"
