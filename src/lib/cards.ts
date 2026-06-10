@@ -4,10 +4,9 @@ import cardJson from "@/data/cards.json";
 
 export const allCards: CreditCardData[] = cardJson.creditCards as unknown as CreditCardData[];
 
-export const cardImages: Record<number, string> = {
-  4:  "https://ecm.capitalone.com/WCM/card/products/venturex-cg-static-card-1000x630-2.png",
-  14: "https://ecm.capitalone.com/WCM/card/products/new-savor-card-art.png",
-};
+export const cardImages: Record<number, string> = Object.fromEntries(
+  allCards.filter((c) => c.image).map((c) => [c.id, c.image])
+);
 
 export const cardGradients: Record<number, [string, string]> = {
   1:  ["#1a3a5c", "#2d6aae"],
