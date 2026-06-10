@@ -4,8 +4,55 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mic, X } from "lucide-react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type SR = any;
+interface SpeechRecognitionAlternative {
+  transcript: string;
+  confidence: number;
+}
+
+interface SpeechRecognitionResult {
+  isFinal: boolean;
+  length: number;
+  [index: number]: SpeechRecognitionAlternative;
+}
+
+interface SpeechRecognitionResultList {
+  length: number;
+  [index: number]: SpeechRecognitionResult;
+}
+
+interface SpeechRecognitionEvent {
+  results: SpeechRecognitionResultList;
+}
+
+interface SpeechRecognitionErrorEvent {
+  error: "no-speech" | "not-allowed" | "network" | "audio-capture" | "aborted" | string;
+}
+
+interface SpeechRecognitionInstance {
+  lang: string;
+  interimResults: boolean;
+  maxAlternatives: number;
+  onstart: (() => void) | null;
+  onresult: ((e: SpeechRecognitionEvent) => void) | null;
+  onerror: ((e: SpeechRecognitionErrorEvent) => void) | null;
+  onend: (() => void) | null;
+  start(): void;
+  abort(): void;
+}
+
+declare global {
+  interface Window {
+    SpeechRecognition?: new () => SpeechRecognitionInstance;
+    webkitSpeechRecognition?: new () => SpeechRecognitionInstance;
+  }
+}
+
+function errorMessage(code: SpeechRecognitionErrorEvent["error"]): string {
+  if (code === "not-allowed") return "Microphone access denied. Check browser permissions.";
+  if (code === "no-speech") return "No speech detected — tap to try again.";
+  if (code === "network") return "Network error — check your connection and try again.";
+  return "Couldn't hear you — tap to try again.";
+}
 
 export function AskSheet({
   open,
@@ -19,7 +66,7 @@ export function AskSheet({
   const [listening, setListening] = useState(false);
   const [transcript, setTranscript] = useState("");
   const [error, setError] = useState<string | null>(null);
-  const recognitionRef = useRef<SR>(null);
+  const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
 
   useEffect(() => {
     if (!open) {
@@ -30,13 +77,12 @@ export function AskSheet({
       return;
     }
     startListening();
+  // startListening is stable (no deps) — safe to omit from array
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   function startListening() {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const w = window as any;
-    const SpeechRecognition = w.SpeechRecognition ?? w.webkitSpeechRecognition;
+    const SpeechRecognition = window.SpeechRecognition ?? window.webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
       setError("Voice input isn't supported in this browser.");
@@ -51,9 +97,9 @@ export function AskSheet({
 
     rec.onstart = () => { setListening(true); setError(null); };
 
-    rec.onresult = (e: SR) => {
-      const t = Array.from(e.results as SR[])
-        .map((r: SR) => r[0].transcript as string)
+    rec.onresult = (e: SpeechRecognitionEvent) => {
+      const t = Array.from({ length: e.results.length }, (_, i) => e.results[i])
+        .map((r) => r[0].transcript)
         .join("");
       setTranscript(t);
       if (e.results[e.results.length - 1].isFinal) {
@@ -63,9 +109,9 @@ export function AskSheet({
       }
     };
 
-    rec.onerror = () => {
+    rec.onerror = (e: SpeechRecognitionErrorEvent) => {
       setListening(false);
-      setError("Couldn't hear you — tap to try again.");
+      setError(errorMessage(e.error));
     };
 
     rec.onend = () => setListening(false);

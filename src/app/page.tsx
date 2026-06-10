@@ -2,36 +2,30 @@
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Mic,
-  CreditCard,
-  Plus,
-  X,
-  Trophy,
-  Wallet,
-  Search,
-  Flame,
-} from "lucide-react";
-import { CardWithRank, CreditCardData, SpendCategory } from "@/types";
+import { Mic, CreditCard, Plus, X, Trophy, Wallet, Search, Flame } from "lucide-react";
+import { CardWithRank, CreditCardData, SpendCategory, Promotion } from "@/types";
 import { allCards, rankCards, classifyQuery } from "@/lib/cards";
 import { CARD_ASPECT, CARD_PEEK } from "@/lib/constants";
 import { categories } from "@/lib/categories";
 import { formatExpiry } from "@/lib/formatters";
+import { useMyCards } from "@/hooks/useMyCards";
 import { WalletCard } from "@/components/WalletCard";
 import { CardDetailPage } from "@/components/CardDetailPage";
 import { AddCardSheet } from "@/components/AddCardSheet";
 import { AskSheet } from "@/components/AskSheet";
+import { CategoryChips } from "@/components/CategoryChips";
 
 export default function Home() {
   const [cardHeight, setCardHeight] = useState(246);
   const [cards, setCards] = useState<CreditCardData[]>(allCards);
-  const [myCardIds, setMyCardIds] = useState<Set<number>>(new Set());
-  const [cardLast4, setCardLast4] = useState<Record<number, string>>({});
+  const [promotions, setPromotions] = useState<Promotion[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<SpendCategory | null>(null);
   const [detailCard, setDetailCard] = useState<CardWithRank | null>(null);
   const [showAddSheet, setShowAddSheet] = useState(false);
   const [showAskSheet, setShowAskSheet] = useState(false);
+
+  const { myCardIds, cardLast4, toggleCard } = useMyCards();
 
   useEffect(() => {
     const update = () => {
@@ -50,47 +44,12 @@ export default function Home() {
         if (Array.isArray(data.creditCards) && data.creditCards.length > 0) {
           setCards(data.creditCards);
         }
+        if (Array.isArray(data.promotions)) {
+          setPromotions(data.promotions);
+        }
       })
       .catch(() => {});
   }, []);
-
-  useEffect(() => {
-    const saved = localStorage.getItem("cb-max-cards");
-    if (saved) {
-      try { setMyCardIds(new Set(JSON.parse(saved))); } catch {}
-    }
-    const savedLast4 = localStorage.getItem("cb-max-last4");
-    if (savedLast4) {
-      try { setCardLast4(JSON.parse(savedLast4)); } catch {}
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("cb-max-cards", JSON.stringify([...myCardIds]));
-  }, [myCardIds]);
-
-  useEffect(() => {
-    localStorage.setItem("cb-max-last4", JSON.stringify(cardLast4));
-  }, [cardLast4]);
-
-  const handleSetLast4 = useCallback((id: number, val: string) => {
-    setCardLast4((prev) => ({ ...prev, [id]: val }));
-  }, []);
-
-  const toggleCard = useCallback((card: CreditCardData) => {
-    setMyCardIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(card.id)) next.delete(card.id);
-      else next.add(card.id);
-      return next;
-    });
-  }, []);
-
-  const effectiveCategory = useMemo<SpendCategory>(() => {
-    if (selectedCategory) return selectedCategory;
-    if (searchQuery.trim()) return classifyQuery(searchQuery);
-    return "all";
-  }, [selectedCategory, searchQuery]);
 
   const handleSearchChange = (value: string) => {
     setSearchQuery(value);
@@ -102,8 +61,22 @@ export default function Home() {
     setSearchQuery("");
   };
 
-  const myCards = cards.filter((c) => myCardIds.has(c.id));
-  const ranked = rankCards(myCards, effectiveCategory);
+  const effectiveCategory = useMemo<SpendCategory>(() => {
+    if (selectedCategory) return selectedCategory;
+    if (searchQuery.trim()) return classifyQuery(searchQuery);
+    return "all";
+  }, [selectedCategory, searchQuery]);
+
+  const myCards = useMemo(
+    () => cards.filter((c) => myCardIds.has(c.id)),
+    [cards, myCardIds]
+  );
+
+  const ranked = useMemo(
+    () => rankCards(myCards, effectiveCategory, promotions),
+    [myCards, effectiveCategory, promotions]
+  );
+
   const bestCard = ranked[0] ?? null;
   const activeCategoryLabel = categories.find((c) => c.key === effectiveCategory)?.label ?? "this";
   const stackHeight = (ranked.length - 1) * CARD_PEEK + cardHeight + 20;
@@ -111,8 +84,7 @@ export default function Home() {
   const handleCardTap = useCallback(
     (id: number) => {
       const card = ranked.find((c) => c.id === id);
-      if (!card) return;
-      setDetailCard(card);
+      if (card) setDetailCard(card);
     },
     [ranked]
   );
@@ -173,27 +145,11 @@ export default function Home() {
 
         {/* ─── Category Chips ─── */}
         <div className="px-5 pb-3">
-          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-            {categories.map((cat) => {
-              const Icon = cat.icon;
-              const isActive =
-                selectedCategory === cat.key ||
-                (!selectedCategory && searchQuery.trim() && classifyQuery(searchQuery) === cat.key);
-              return (
-                <motion.button
-                  key={cat.key}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => handleChipClick(cat.key)}
-                  className={`flex items-center gap-1.5 px-3 py-2 rounded-full whitespace-nowrap transition-all text-xs font-medium ${
-                    isActive ? "bg-white text-black" : "bg-white/8 text-white/50"
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  {cat.label}
-                </motion.button>
-              );
-            })}
-          </div>
+          <CategoryChips
+            selectedCategory={selectedCategory}
+            searchQuery={searchQuery}
+            onChipClick={handleChipClick}
+          />
         </div>
 
         {/* ─── Best Card Banner ─── */}

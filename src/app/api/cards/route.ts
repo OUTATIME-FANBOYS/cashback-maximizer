@@ -5,6 +5,7 @@ import {
   getIssuers,
   getCardById,
   getCardsMetadata,
+  getPromotions,
 } from '@/lib/cards-store';
 
 export async function GET(request: NextRequest) {
@@ -26,16 +27,18 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ issuer, cards });
     }
 
-    // Default: return all cards with metadata
-    const cards = await getAllCards();
-    const issuers = await getIssuers();
-    const metadata = await getCardsMetadata();
+    // Default: return all cards, promotions, and metadata
+    const [cards, issuers, metadata, promotions] = await Promise.all([
+      getAllCards(),
+      getIssuers(),
+      getCardsMetadata(),
+      getPromotions(),
+    ]);
 
-    return NextResponse.json({
-      creditCards: cards,
-      issuers,
-      metadata,
-    });
+    return NextResponse.json(
+      { creditCards: cards, issuers, metadata, promotions },
+      { headers: { "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400" } }
+    );
   } catch (error) {
     console.error('Error fetching cards:', error);
     return NextResponse.json(

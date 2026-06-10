@@ -1,4 +1,5 @@
 import { Redis } from '@upstash/redis';
+import type { Promotion } from '@/types';
 
 const kv = new Redis({
   url: process.env.KV_REST_API_URL!,
@@ -21,6 +22,7 @@ export type Card = {
 };
 
 const CARDS_KEY = 'cards:all';
+const PROMOTIONS_KEY = 'promotions:active';
 const CARD_BY_ID_KEY = (id: number) => `card:${id}`;
 const CARDS_BY_ISSUER_KEY = (issuer: string) => `cards:issuer:${issuer}`;
 const ISSUERS_KEY = 'issuers:list';
@@ -85,6 +87,15 @@ export async function seedCards(cards: Card[]): Promise<void> {
     lastUpdated: new Date().toISOString(),
     version: '2.0',
   });
+}
+
+export async function getPromotions(): Promise<Promotion[]> {
+  const promotions = await kv.get<Promotion[]>(PROMOTIONS_KEY);
+  return promotions || [];
+}
+
+export async function seedPromotions(promotions: Promotion[]): Promise<void> {
+  await kv.set(PROMOTIONS_KEY, promotions);
 }
 
 export async function updateCardImage(cardId: number, imageUrl: string): Promise<void> {

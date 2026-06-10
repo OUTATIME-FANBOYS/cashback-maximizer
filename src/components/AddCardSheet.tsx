@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CreditCard, ChevronLeft, Check, Search, X } from "lucide-react";
 import { CreditCardData } from "@/types";
@@ -26,14 +26,16 @@ export function AddCardSheet({
     if (!open) setFilterQuery("");
   }, [open]);
 
-  const filteredCards = filterQuery.trim()
-    ? cards.filter(
-        (c) =>
-          c.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
-          c.issuer.toLowerCase().includes(filterQuery.toLowerCase()) ||
-          c.network.toLowerCase().includes(filterQuery.toLowerCase())
-      )
-    : cards;
+  const filteredCards = useMemo(() => {
+    const q = filterQuery.toLowerCase().trim();
+    if (!q) return cards;
+    return cards.filter(
+      (c) =>
+        c.name.toLowerCase().includes(q) ||
+        c.issuer.toLowerCase().includes(q) ||
+        c.network.toLowerCase().includes(q)
+    );
+  }, [filterQuery, cards]);
 
   return (
     <AnimatePresence>

@@ -23,28 +23,29 @@ interface RewardsCardResponse {
 
 const REWARDS_CC_API_BASE = "https://api.rewardscc.com/creditcard-card-image";
 
-async function fetchBuffer(url: string): Promise<Buffer> {
-  const response = await fetch(url, { signal: AbortSignal.timeout(10000) });
-  if (!response.ok) throw new Error(`Fetch failed: ${response.statusText}`);
-  const arrayBuffer = await response.arrayBuffer();
-  return Buffer.from(arrayBuffer);
-}
+const CONTENT_TYPE_TO_EXT: Record<string, string> = {
+  "image/png": ".png",
+  "image/webp": ".webp",
+  "image/jpeg": ".jpg",
+  "image/jpg": ".jpg",
+};
 
 async function uploadImageToBlob(
   cardId: number,
   imageUrl: string
 ): Promise<{ success: boolean; blobUrl?: string; error?: string }> {
   try {
-    // Download the image
-    const buffer = await fetchBuffer(imageUrl);
+    const response = await fetch(imageUrl, { signal: AbortSignal.timeout(15000) });
+    if (!response.ok) throw new Error(`Fetch failed: ${response.statusText}`);
 
-    // Upload to Vercel Blob
-    const ext = imageUrl.endsWith(".png") ? ".png" : ".jpg";
-    const blobPath = `cards/api/${cardId}${ext}`;
-    const blob = await put(blobPath, buffer, {
+    const contentType = response.headers.get("content-type")?.split(";")[0].trim() ?? "image/jpeg";
+    const ext = CONTENT_TYPE_TO_EXT[contentType] ?? ".jpg";
+    const buffer = Buffer.from(await response.arrayBuffer());
+
+    const blob = await put(`cards/api/${cardId}${ext}`, buffer, {
       access: "public",
       addRandomSuffix: false,
-      contentType: imageUrl.includes(".png") ? "image/png" : "image/jpeg",
+      contentType,
     });
 
     return { success: true, blobUrl: blob.url };
