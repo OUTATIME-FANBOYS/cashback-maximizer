@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useDragControls } from "framer-motion";
 import { ChevronLeft, Flame } from "lucide-react";
 import { CardWithRank } from "@/types";
 import { formatExpiry, camelToLabel } from "@/lib/formatters";
@@ -20,6 +20,7 @@ export function CardDetailPage({
 }) {
   const [showContent, setShowContent] = useState(false);
   const hasPromo = !!card.activePromotion;
+  const dragControls = useDragControls();
 
   useEffect(() => {
     const t = setTimeout(() => setShowContent(true), 300);
@@ -32,6 +33,8 @@ export function CardDetailPage({
       exit={{ opacity: 0 }}
       transition={{ duration: 0.18 }}
       drag="y"
+      dragControls={dragControls}
+      dragListener={false}
       dragConstraints={{ top: 0 }}
       dragElastic={0.15}
       onDragEnd={(_, info) => {
@@ -47,7 +50,13 @@ export function CardDetailPage({
         className="fixed inset-0 bg-[#0a0a0a] -z-10"
       />
       <div className="w-full max-w-[430px] mx-auto h-screen overflow-y-auto">
-        <div className="px-5 pt-14 pb-4 flex items-center gap-3">
+        <div
+          className="flex justify-center pt-3 pb-1 cursor-grab active:cursor-grabbing touch-none select-none"
+          onPointerDown={(e) => dragControls.start(e)}
+        >
+          <div className="w-10 h-1 rounded-full bg-white/30" />
+        </div>
+        <div className="px-5 pt-10 pb-4 flex items-center gap-3">
           <button
             onClick={onClose}
             className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center active:bg-white/20 transition-colors"
